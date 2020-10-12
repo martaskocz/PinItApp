@@ -1,0 +1,17 @@
+{
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
+  },
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    }
+  },
+  "env": {
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "plugins": ["testing-library"]
+}
