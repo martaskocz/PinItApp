@@ -4,6 +4,13 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
   },
   "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    },
     "react": {
       "version": "999.999.999"
     }
