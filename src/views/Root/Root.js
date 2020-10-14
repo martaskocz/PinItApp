@@ -5,6 +5,7 @@ import Button from 'components/atoms/Button/Button';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import GlobalStyle from 'components/theme/GlobalStyle';
 import { theme } from 'components/theme/mainTheme';
+import article from 'assets/icons/article.svg';
 
 const Root = () => (
   <div>
@@ -14,7 +15,7 @@ const Root = () => (
         <h1>Hello!</h1>
         <Button>Close / Save</Button>
         <Button secondary>Remove</Button>
-        <ButtonIcon active>Icon</ButtonIcon>
+        <ButtonIcon icon={article} active />
       </>
     </ThemeProvider>
   </div>
