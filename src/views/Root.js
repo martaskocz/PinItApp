@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './Root/App.css';
 import Main from 'templates/Main';
 import Twitter from './Twitter';
 import Article from './Article';
