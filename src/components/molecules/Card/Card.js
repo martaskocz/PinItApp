@@ -14,6 +14,17 @@ const Card = ({ type, name }) => {
       <div className={`${styles.cardHeading} ${headingType}`}>
         <Heading type={type} name={name} />
         <ParagraphXS name="3 days" />
+        {type === 'twitter' && (
+          <img alt="twitter avatar" src="https://unavatar.now.sh/twitter/hello_roman" />
+        )}
+        {type === 'article' && (
+          <a
+            v-text="icon"
+            aria-label="article link"
+            className={styles.iconLink}
+            href="https://google.com"
+          />
+        )}
       </div>
       <div className={styles.cardBody}>
         <div className={styles.cardBodyPara}>
