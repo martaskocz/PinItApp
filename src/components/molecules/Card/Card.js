@@ -16,8 +16,10 @@ const Card = ({ type, name }) => {
         <ParagraphXS name="3 days" />
       </div>
       <div className={styles.cardBody}>
-        <Paragraph />
-        <ParagraphXS bold name="READ MORE" />
+        <div className={styles.cardBodyPara}>
+          <Paragraph />
+          <ParagraphXS bold name="READ MORE" />
+        </div>
         <Button label="Remove" secondary />
       </div>
     </div>
@@ -25,7 +27,7 @@ const Card = ({ type, name }) => {
 };
 
 Card.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['twitter', 'note', 'article']),
   name: PropTypes.string,
 };
 

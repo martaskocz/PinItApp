@@ -18,6 +18,8 @@ const Root = () => (
         <Button label="Remove" secondary />
         <ButtonIcon icon={article} active />
         <Card type="twitter" />
+        <Card type="note" />
+        <Card type="article" />
       </>
     </ThemeProvider>
   </div>
