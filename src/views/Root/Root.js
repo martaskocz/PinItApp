@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import './App.css';
 import Button from 'components/atoms/Button/Button';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
+import Card from 'components/molecules/Card/Card';
 import GlobalStyle from 'components/theme/GlobalStyle';
 import { theme } from 'components/theme/mainTheme';
 import article from 'assets/icons/article.svg';
@@ -13,9 +14,10 @@ const Root = () => (
     <ThemeProvider theme={theme}>
       <>
         <h1>Hello!</h1>
-        <Button>Close / Save</Button>
-        <Button secondary>Remove</Button>
+        <Button label="Close / Save" />
+        <Button label="Remove" secondary />
         <ButtonIcon icon={article} active />
+        <Card type="twitter" />
       </>
     </ThemeProvider>
   </div>

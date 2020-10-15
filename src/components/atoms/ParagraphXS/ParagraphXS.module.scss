@@ -1,0 +1,14 @@
+@import 'src/assets/styles/basic';
+
+.paragraph {
+  width: 45.4rem;
+  margin: 0;
+  font-size: 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $semibold;
+}
+
+.paragraphBold {
+  @extend .paragraph;
+  font-weight: $bold;
+}

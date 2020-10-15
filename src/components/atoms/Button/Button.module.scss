@@ -1,0 +1,21 @@
+@import 'src/assets/styles/basic';
+
+.button {
+  background-color: $primary;
+  width: 220px;
+  height: 47px;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.secondary {
+  @extend .button;
+  background-color: $grey200;
+  width: 105px;
+  height: 30px;
+  font-size: 10px;
+}

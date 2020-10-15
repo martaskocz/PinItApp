@@ -1,20 +1,28 @@
-import styled, { css } from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './ButtonIcon.module.scss';
 
-const ButtonIcon = styled.button`
-  width: 6.7rem;
-  height: 6.7rem;
-  background-image: url(${({ icon }) => icon});
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-color: transparent;
-  border: none;
+const ButtonIcon = ({ active, icon }) => {
+  const buttonClass = active ? styles.active : styles.buttonIcon;
 
-  ${({ active }) =>
-    active &&
-    css`
-      background-color: ${({ theme }) => theme.white};
-      border-radius: 20px;
-    `}
-`;
+  return (
+    <button
+      type="button"
+      aria-label="Save"
+      className={buttonClass}
+      style={{ backgroundImage: `url(${icon})` }}
+    />
+  );
+};
+
+ButtonIcon.propTypes = {
+  active: PropTypes.bool,
+  icon: PropTypes.string,
+};
+
+ButtonIcon.defaultProps = {
+  active: false,
+  icon: 'src/assets/icons/article.svg',
+};
 
 export default ButtonIcon;

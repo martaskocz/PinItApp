@@ -1,25 +1,25 @@
-import styled, { css } from 'styled-components';
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './Button.module.scss';
 
-const Button = styled.button`
-  padding: 0;
-  background-color: ${({ theme }) => theme.primary};
-  width: 220px;
-  height: 47px;
-  border: none;
-  border-radius: 50px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 500;
-  font-size: 1.6rem;
-  text-transform: uppercase;
+const Button = ({ label, secondary }) => {
+  const buttonClass = secondary ? styles.secondary : styles.button;
 
-  ${({ secondary }) =>
-    secondary &&
-    css`
-      background-color: ${({ theme }) => theme.grey200};
-      width: 105px;
-      height: 30px;
-      font-size: 10px;
-    `}
-`;
+  return (
+    <button type="submit" className={buttonClass}>
+      {label}
+    </button>
+  );
+};
+
+Button.propTypes = {
+  label: PropTypes.string,
+  secondary: PropTypes.bool,
+};
+
+Button.defaultProps = {
+  label: 'Close',
+  secondary: false,
+};
 
 export default Button;
