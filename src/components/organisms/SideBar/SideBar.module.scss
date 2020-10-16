@@ -1,0 +1,29 @@
+@import 'src/assets/styles/basic';
+
+.wrapper {
+  width: 15.3rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  width: 72px;
+  height: 45px;
+}
+
+.icons {
+}
+
+.twitter {
+  background-color: $secondary;
+}
+
+.article {
+  background-color: $tertiary;
+}
+
+.note {
+  background-color: $primary;
+}

@@ -1,9 +1,9 @@
 @import 'src/assets/styles/basic';
 
 .buttonIcon {
+  display: block;
   width: 6.7rem;
   height: 6.7rem;
-  background-image: url({icon});
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-color: transparent;
