@@ -1,6 +1,9 @@
 @import 'src/assets/styles/basic';
 
 .wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 15.3rem;
   height: 100vh;
   display: flex;
@@ -8,12 +11,9 @@
   justify-content: space-between;
   align-items: center;
 }
-.logo {
-  width: 72px;
-  height: 45px;
-}
 
 .icons {
+  margin-top: -30vh;
 }
 
 .twitter {
