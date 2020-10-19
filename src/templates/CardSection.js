@@ -11,8 +11,8 @@ const CardSection = ({ children, type }) => (
     <SideBar type={type} />
     <div className={styles.cardSectionNav}>
       <Input />
-      <Heading big name="Notes" />
-      <Paragraph additionalInfo name="12 notes" />
+      <Heading big name={`${type}s`} />
+      <Paragraph additionalInfo name={`12 ${type}s`} />
     </div>
     <div className={styles.cardSection}>{children}</div>
   </>
@@ -20,7 +20,7 @@ const CardSection = ({ children, type }) => (
 
 CardSection.propTypes = {
   children: PropTypes.element.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['note', 'twitter', 'article']).isRequired,
 };
 
 export default CardSection;

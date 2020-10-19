@@ -4,7 +4,8 @@ import Card from 'components/molecules/Card/Card';
 
 const Twitter = () => (
   <CardSection type="twitter">
-    <h1>Twitters</h1>
+    <Card type="twitter" />
+    <Card type="twitter" />
     <Card type="twitter" />
   </CardSection>
 );
