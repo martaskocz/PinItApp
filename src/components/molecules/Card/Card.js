@@ -12,7 +12,7 @@ const Card = ({ type, name }) => {
   return (
     <div className={styles.card}>
       <div className={`${styles.cardHeading} ${headingType}`}>
-        <Heading type={type} name={name} />
+        <Heading name={name} />
         <ParagraphXS name="3 days" />
         {type === 'twitter' && (
           <img alt="twitter avatar" src="https://unavatar.now.sh/twitter/hello_roman" />

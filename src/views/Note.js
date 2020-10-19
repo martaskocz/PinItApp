@@ -6,14 +6,16 @@ const Note = () => {
   const note = 'note';
 
   return (
-    <CardSection type={note}>
-      <Card type={note} />
-      <Card type={note} />
-      <Card type={note} />
-      <Card type={note} />
-      <Card type={note} />
-      <Card type={note} />
-    </CardSection>
+    <>
+      <CardSection type={note}>
+        <Card type={note} />
+        <Card type={note} />
+        <Card type={note} />
+        <Card type={note} />
+        <Card type={note} />
+        <Card type={note} />
+      </CardSection>
+    </>
   );
 };
 export default Note;

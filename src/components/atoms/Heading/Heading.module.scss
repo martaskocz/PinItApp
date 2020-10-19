@@ -5,4 +5,9 @@
   font-size: 2.4rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: $bold;
+
+  &XL {
+    font-size: 4rem;
+    font-weight: $semibold;
+  }
 }

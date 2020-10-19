@@ -1,0 +1,6 @@
+.cardSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 85px;
+  padding: 25px 150px 25px 70px;
+}
