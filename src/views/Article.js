@@ -1,12 +1,11 @@
 import React from 'react';
-import SideBar from 'components/organisms/SideBar/SideBar';
+import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
 
 const Article = () => (
-  <div>
-    <SideBar type="article" />
+  <CardSection type="article">
     <h1>Articles</h1>
-    <Card />
-  </div>
+    <Card type="article" />
+  </CardSection>
 );
 export default Article;

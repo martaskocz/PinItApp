@@ -1,13 +1,12 @@
 import React from 'react';
-import SideBar from 'components/organisms/SideBar/SideBar';
+import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
 
 const Twitter = () => (
-  <div>
-    <SideBar type="twitter" />
+  <CardSection type="twitter">
     <h1>Twitters</h1>
-    <Card />
-  </div>
+    <Card type="twitter" />
+  </CardSection>
 );
 
 export default Twitter;

@@ -1,13 +1,19 @@
 import React from 'react';
-import SideBar from 'components/organisms/SideBar/SideBar';
 import Card from 'components/molecules/Card/Card';
+import CardSection from 'templates/CardSection';
 
-const Note = () => (
-  <div>
-    <SideBar type="note" />
-    <h1>Notes</h1>
-    <Card />
-  </div>
-);
+const Note = () => {
+  const note = 'note';
 
+  return (
+    <CardSection type={note}>
+      <Card type={note} />
+      <Card type={note} />
+      <Card type={note} />
+      <Card type={note} />
+      <Card type={note} />
+      <Card type={note} />
+    </CardSection>
+  );
+};
 export default Note;
