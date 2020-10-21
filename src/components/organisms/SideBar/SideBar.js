@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
+import ButtonLinkIcon from 'components/atoms/ButtonLinkIcon/ButtonLinkIcon';
 import ArticleIcon from 'assets/icons/article.svg';
 import NoteIcon from 'assets/icons/note.svg';
 import TwitterIcon from 'assets/icons/twitter.svg';
@@ -14,13 +13,13 @@ const SideBar = ({ type }) => {
 
   return (
     <div className={`${styles.wrapper} ${activeType}`}>
-      <Logo />
+      <Logo exact to="/" />
       <div className={styles.icons}>
-        <ButtonIcon as={NavLink} to="/" icon={NoteIcon} />
-        <ButtonIcon as={NavLink} to="/twitters" icon={TwitterIcon} />
-        <ButtonIcon as={NavLink} to="/articles" icon={ArticleIcon} />
+        <ButtonLinkIcon exact to="/" icon={NoteIcon} />
+        <ButtonLinkIcon to="/twitters" icon={TwitterIcon} />
+        <ButtonLinkIcon to="/articles" icon={ArticleIcon} />
       </div>
-      <ButtonIcon as={NavLink} to="/" icon={LogoutIcon} />
+      <ButtonLinkIcon logout to="/" icon={LogoutIcon} />
     </div>
   );
 };
