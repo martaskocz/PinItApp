@@ -25,7 +25,7 @@ const SideBar = ({ type }) => {
 };
 
 SideBar.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['twitter', 'article', 'note']),
 };
 
 SideBar.defaultProps = {
