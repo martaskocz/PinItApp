@@ -26,7 +26,7 @@ const Card = ({ articleUrl, content, created, type, title, twitterName }) => {
       </div>
       <div className={styles.cardBody}>
         <div className={styles.cardBodyPara}>
-          <Paragraph>{content}</Paragraph>
+          <Paragraph content={content} />
           <ParagraphXS bold name="READ MORE" />
         </div>
         <Button label="Remove" secondary />

@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Heading.module.scss';
 
-const Heading = ({ name, big }) => {
+const Heading = ({ title, big }) => {
   const className = big ? styles.headingXL : styles.heading;
-  return <h1 className={className}>{name}</h1>;
+  return <h1 className={className}>{title}</h1>;
 };
 
 Heading.propTypes = {
-  name: PropTypes.string,
+  title: PropTypes.string,
   big: PropTypes.bool,
 };
 
 Heading.defaultProps = {
-  name: 'Heading',
+  title: 'Heading',
   big: false,
 };
 

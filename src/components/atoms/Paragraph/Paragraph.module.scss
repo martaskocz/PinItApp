@@ -3,9 +3,11 @@
 .paragraph {
   margin: 0;
   padding-bottom: 2rem;
+  padding-right: 6rem;
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: $light;
+  line-height: 1.8;
 
   &Info {
     font-size: 2.1rem;
