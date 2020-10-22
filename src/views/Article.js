@@ -22,7 +22,21 @@ const articles = [
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     articleUrl: 'https://youtube.com',
-    created: '5 days',
+    created: '12 days',
+  },
+  {
+    title: 'Cool vibes',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    articleUrl: 'https://youtube.com',
+    created: '13 days',
+  },
+  {
+    title: 'Winter is coming',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    articleUrl: 'https://youtube.com',
+    created: '15 days',
   },
 ];
 

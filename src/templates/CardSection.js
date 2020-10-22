@@ -11,8 +11,8 @@ const CardSection = ({ children, type }) => (
     <SideBar type={type} />
     <div className={styles.cardSectionNav}>
       <Input />
-      <Heading big name={`${type}s`} />
-      <Paragraph additionalInfo name={`12 ${type}s`} />
+      <Heading big title={`${type}s`} />
+      <Paragraph additionalInfo content={`12 ${type}s`} />
     </div>
     <div className={styles.cardSection}>{children}</div>
   </>

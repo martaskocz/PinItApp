@@ -14,7 +14,9 @@ const Card = ({ articleUrl, content, created, type, title, twitterName }) => {
       <div className={`${styles.cardHeading} ${headingType}`}>
         <Heading title={title} />
         <ParagraphXS name={created} />
-        {type === 'twitter' && <img alt="twitter avatar" src={twitterName} />}
+        {type === 'twitter' && (
+          <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
+        )}
         {type === 'article' && (
           <a
             v-text="icon"
