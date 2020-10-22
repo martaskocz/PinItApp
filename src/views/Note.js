@@ -45,14 +45,8 @@ const Note = () => {
 
   return (
     <CardSection type={note}>
-      {notes.map((item) => (
-        <Card
-          type="note"
-          title={item.title}
-          content={item.content}
-          created={item.created}
-          key={item.id}
-        />
+      {notes.map(({ content, created, id, title }) => (
+        <Card id={id} type="note" title={title} content={content} created={created} key={id} />
       ))}
     </CardSection>
   );

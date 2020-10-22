@@ -15,7 +15,7 @@ const SideBar = ({ type }) => {
     <div className={`${styles.wrapper} ${activeType}`}>
       <Logo exact to="/" />
       <div className={styles.icons}>
-        <ButtonLinkIcon exact to="/" icon={NoteIcon} />
+        <ButtonLinkIcon to="/notes" icon={NoteIcon} />
         <ButtonLinkIcon to="/twitters" icon={TwitterIcon} />
         <ButtonLinkIcon to="/articles" icon={ArticleIcon} />
       </div>
