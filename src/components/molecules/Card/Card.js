@@ -6,36 +6,40 @@ import ParagraphXS from 'components/atoms/ParagraphXS/ParagraphXS';
 import Button from 'components/atoms/Button/Button';
 import styles from './Card.module.scss';
 
-const Card = ({ articleUrl, content, created, type, title, twitterName }) => {
-  const headingType = styles[type];
+class Card extends React.Component {
+  state = {};
 
-  return (
-    <div className={styles.card}>
-      <div className={`${styles.cardHeading} ${headingType}`}>
-        <Heading title={title} />
-        <ParagraphXS name={created} />
-        {type === 'twitter' && (
-          <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
-        )}
-        {type === 'article' && (
-          <a
-            v-text="icon"
-            aria-label="article link"
-            className={styles.iconLink}
-            href={articleUrl}
-          />
-        )}
-      </div>
-      <div className={styles.cardBody}>
-        <div className={styles.cardBodyPara}>
-          <Paragraph content={content} />
-          <ParagraphXS bold name="READ MORE" />
+  render() {
+    const { articleUrl, content, created, type, title, twitterName } = this.props;
+    const headingType = styles[type];
+    return (
+      <div className={styles.card}>
+        <div className={`${styles.cardHeading} ${headingType}`}>
+          <Heading title={title} />
+          <ParagraphXS name={created} />
+          {type === 'twitter' && (
+            <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
+          )}
+          {type === 'article' && (
+            <a
+              v-text="icon"
+              aria-label="article link"
+              className={styles.iconLink}
+              href={articleUrl}
+            />
+          )}
         </div>
-        <Button label="Remove" secondary />
+        <div className={styles.cardBody}>
+          <div className={styles.cardBodyPara}>
+            <Paragraph content={content} />
+            <ParagraphXS link bold name="READ MORE" />
+          </div>
+          <Button label="Remove" secondary />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Card.propTypes = {
   type: PropTypes.oneOf(['twitter', 'note', 'article']),
