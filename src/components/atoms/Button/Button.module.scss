@@ -1,15 +1,19 @@
 @import 'src/assets/styles/basic';
 
+.basic {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
 .button {
+  @extend .basic;
   background-color: $primary;
   width: 220px;
   height: 47px;
   border: none;
   border-radius: 50px;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 1.6rem;
-  text-transform: uppercase;
 }
 
 .secondary {
@@ -18,4 +22,17 @@
   width: 105px;
   height: 30px;
   font-size: 10px;
+}
+
+.asPlainText {
+  @extend .basic;
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+  font-weight: $bold;
+  &:hover {
+    text-decoration: underline;
+  }
 }

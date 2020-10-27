@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import ParagraphXS from 'components/atoms/ParagraphXS/ParagraphXS';
@@ -7,11 +8,20 @@ import Button from 'components/atoms/Button/Button';
 import styles from './Card.module.scss';
 
 class Card extends React.Component {
-  state = {};
+  state = {
+    showCardDetails: false,
+  };
+
+  handleShowDetails = () => this.setState({ showCardDetails: true });
 
   render() {
-    const { articleUrl, content, created, type, title, twitterName } = this.props;
+    const { id, articleUrl, content, created, type, title, twitterName } = this.props;
+    const { showCardDetails } = this.state;
     const headingType = styles[type];
+
+    if (showCardDetails) {
+      return <Redirect to={`${type}s/${id}`} />;
+    }
     return (
       <div className={styles.card}>
         <div className={`${styles.cardHeading} ${headingType}`}>
@@ -32,7 +42,7 @@ class Card extends React.Component {
         <div className={styles.cardBody}>
           <div className={styles.cardBodyPara}>
             <Paragraph content={content} />
-            <ParagraphXS link bold name="READ MORE" />
+            <Button label="READ MORE" asPlainText onClick={this.handleShowDetails.bind(this)} />
           </div>
           <Button label="Remove" secondary />
         </div>
@@ -48,6 +58,7 @@ Card.propTypes = {
   twitterName: PropTypes.string,
   articleUrl: PropTypes.string,
   content: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 Card.defaultProps = {

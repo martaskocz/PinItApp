@@ -49,6 +49,7 @@ const Twitter = () => (
   <CardSection type="twitter">
     {twitters.map(({ content, created, id, title, twitterName }) => (
       <Card
+        id={id}
         type="twitter"
         title={title}
         twitterName={twitterName}

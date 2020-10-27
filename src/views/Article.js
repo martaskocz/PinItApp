@@ -4,7 +4,7 @@ import Card from 'components/molecules/Card/Card';
 
 const articles = [
   {
-    id: '1',
+    id: 1,
     title: 'React on my mind',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -12,7 +12,7 @@ const articles = [
     created: '1 day',
   },
   {
-    id: '2',
+    id: 2,
     title: 'Live React',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -20,7 +20,7 @@ const articles = [
     created: '3 days',
   },
   {
-    id: '3',
+    id: 3,
     title: 'You do not know JS',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -28,7 +28,7 @@ const articles = [
     created: '12 days',
   },
   {
-    id: '4',
+    id: 4,
     title: 'Cool vibes',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -36,7 +36,7 @@ const articles = [
     created: '13 days',
   },
   {
-    id: '5',
+    id: 5,
     title: 'Winter is coming',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
