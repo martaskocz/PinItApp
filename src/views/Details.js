@@ -5,15 +5,20 @@ import CardDetails from 'templates/CardDetails';
 import SideBar from 'components/organisms/SideBar/SideBar';
 
 const Details = ({ match }) => {
-  const type =
-    match.path === routes.twitter
-      ? 'twitter'
-      : match.path === routes.article
-      ? 'article'
-      : match.path === routes.note
-      ? 'note'
-      : null;
-
+  let type;
+  switch (match.path) {
+    case routes.twitter:
+      type = 'twitter';
+      break;
+    case routes.article:
+      type = 'article';
+      break;
+    case routes.note:
+      type = 'note';
+      break;
+    default:
+      type = 'note';
+  }
   return (
     <>
       <SideBar type={type} />
