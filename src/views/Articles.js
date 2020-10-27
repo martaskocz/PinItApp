@@ -1,13 +1,14 @@
 import React from 'react';
-import Card from 'components/molecules/Card/Card';
 import CardSection from 'templates/CardSection';
+import Card from 'components/molecules/Card/Card';
 
-const notes = [
+const articles = [
   {
     id: 1,
     title: 'React on my mind',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    articleUrl: 'https://youtube.com',
     created: '1 day',
   },
   {
@@ -15,6 +16,7 @@ const notes = [
     title: 'Live React',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    articleUrl: 'https://youtube.com',
     created: '3 days',
   },
   {
@@ -22,6 +24,7 @@ const notes = [
     title: 'You do not know JS',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    articleUrl: 'https://youtube.com',
     created: '12 days',
   },
   {
@@ -29,6 +32,7 @@ const notes = [
     title: 'Cool vibes',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    articleUrl: 'https://youtube.com',
     created: '13 days',
   },
   {
@@ -36,19 +40,24 @@ const notes = [
     title: 'Winter is coming',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    articleUrl: 'https://youtube.com',
     created: '15 days',
   },
 ];
 
-const Note = () => {
-  const note = 'note';
-
-  return (
-    <CardSection type={note}>
-      {notes.map(({ content, created, id, title }) => (
-        <Card id={id} type="note" title={title} content={content} created={created} key={id} />
-      ))}
-    </CardSection>
-  );
-};
-export default Note;
+const Articles = () => (
+  <CardSection type="article">
+    {articles.map(({ articleUrl, content, created, id, title }) => (
+      <Card
+        id={id}
+        type="article"
+        title={title}
+        content={content}
+        articleUrl={articleUrl}
+        created={created}
+        key={id}
+      />
+    ))}
+  </CardSection>
+);
+export default Articles;

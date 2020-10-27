@@ -2,13 +2,13 @@ import React from 'react';
 import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
 
-const articles = [
+const twitters = [
   {
     id: 1,
     title: 'React on my mind',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    articleUrl: 'https://youtube.com',
+    twitterName: 'dan_abramov',
     created: '1 day',
   },
   {
@@ -16,7 +16,7 @@ const articles = [
     title: 'Live React',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    articleUrl: 'https://youtube.com',
+    twitterName: 'kentcdodds',
     created: '3 days',
   },
   {
@@ -24,7 +24,7 @@ const articles = [
     title: 'You do not know JS',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    articleUrl: 'https://youtube.com',
+    twitterName: 'ryanflorence',
     created: '12 days',
   },
   {
@@ -32,7 +32,7 @@ const articles = [
     title: 'Cool vibes',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    articleUrl: 'https://youtube.com',
+    twitterName: 'mjackson',
     created: '13 days',
   },
   {
@@ -40,24 +40,25 @@ const articles = [
     title: 'Winter is coming',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    articleUrl: 'https://youtube.com',
+    twitterName: 'cassidoo',
     created: '15 days',
   },
 ];
 
-const Article = () => (
-  <CardSection type="article">
-    {articles.map(({ articleUrl, content, created, id, title }) => (
+const Twitters = () => (
+  <CardSection type="twitter">
+    {twitters.map(({ content, created, id, title, twitterName }) => (
       <Card
         id={id}
-        type="article"
+        type="twitter"
         title={title}
-        content={content}
-        articleUrl={articleUrl}
+        twitterName={twitterName}
         created={created}
+        content={content}
         key={id}
       />
     ))}
   </CardSection>
 );
-export default Article;
+
+export default Twitters;

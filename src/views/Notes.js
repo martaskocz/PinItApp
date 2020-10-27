@@ -1,14 +1,13 @@
 import React from 'react';
-import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
+import CardSection from 'templates/CardSection';
 
-const twitters = [
+const notes = [
   {
     id: 1,
     title: 'React on my mind',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    twitterName: 'dan_abramov',
     created: '1 day',
   },
   {
@@ -16,7 +15,6 @@ const twitters = [
     title: 'Live React',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    twitterName: 'kentcdodds',
     created: '3 days',
   },
   {
@@ -24,7 +22,6 @@ const twitters = [
     title: 'You do not know JS',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    twitterName: 'ryanflorence',
     created: '12 days',
   },
   {
@@ -32,7 +29,6 @@ const twitters = [
     title: 'Cool vibes',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    twitterName: 'mjackson',
     created: '13 days',
   },
   {
@@ -40,25 +36,19 @@ const twitters = [
     title: 'Winter is coming',
     content:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    twitterName: 'cassidoo',
     created: '15 days',
   },
 ];
 
-const Twitter = () => (
-  <CardSection type="twitter">
-    {twitters.map(({ content, created, id, title, twitterName }) => (
-      <Card
-        id={id}
-        type="twitter"
-        title={title}
-        twitterName={twitterName}
-        created={created}
-        content={content}
-        key={id}
-      />
-    ))}
-  </CardSection>
-);
+const Notes = () => {
+  const note = 'note';
 
-export default Twitter;
+  return (
+    <CardSection type={note}>
+      {notes.map(({ content, created, id, title }) => (
+        <Card id={id} type="note" title={title} content={content} created={created} key={id} />
+      ))}
+    </CardSection>
+  );
+};
+export default Notes;

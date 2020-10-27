@@ -42,7 +42,12 @@ class Card extends React.Component {
         <div className={styles.cardBody}>
           <div className={styles.cardBodyPara}>
             <Paragraph content={content} />
-            <Button label="READ MORE" asPlainText onClick={this.handleShowDetails.bind(this)} />
+            <Button
+              asPlainText
+              label="READ MORE"
+              onClick={this.handleShowDetails.bind(this)}
+              upperCase
+            />
           </div>
           <Button label="Remove" secondary />
         </div>
