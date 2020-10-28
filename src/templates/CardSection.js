@@ -19,7 +19,14 @@ const CardSection = ({ children, type }) => (
 );
 
 CardSection.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      title: PropTypes.string,
+      content: PropTypes.string,
+      created: PropTypes.string,
+    }),
+  ).isRequired,
   type: PropTypes.oneOf(['note', 'twitter', 'article']).isRequired,
 };
 

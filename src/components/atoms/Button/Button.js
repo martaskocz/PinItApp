@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
 
-const Button = ({ asPlainText, onClick, label, primary, secondary, upperCase }) => {
-  const classValue = classNames(styles.button, {
+const Button = ({ asPlainText, onClick, label, primary, secondary, type, upperCase }) => {
+  const classValue = classNames(styles.button, styles[`${type}`], {
     [styles.primary]: primary,
     [styles.secondary]: secondary,
     [styles.asPlainText]: asPlainText,
@@ -24,6 +24,7 @@ Button.propTypes = {
   label: PropTypes.string,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
+  type: PropTypes.string,
   upperCase: PropTypes.bool,
 };
 
@@ -33,6 +34,7 @@ Button.defaultProps = {
   label: 'Close',
   primary: false,
   secondary: false,
+  type: '',
   upperCase: false,
 };
 

@@ -22,7 +22,7 @@ const Details = ({ match }) => {
   return (
     <>
       <SideBar type={type} />
-      <CardDetails />
+      <CardDetails type={type} />
     </>
   );
 };
