@@ -22,7 +22,7 @@ class Card extends React.Component {
     const headingType = styles[type];
 
     if (showCardDetails) {
-      return <Redirect to={`${type}s/${id}`} />;
+      return <Redirect to={`${type}/${id}`} />;
     }
     return (
       <div className={styles.card}>
