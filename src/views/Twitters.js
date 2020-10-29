@@ -28,5 +28,17 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(Twitters);
 
 Twitters.propTypes = {
-  twitters: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  twitters: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      twitterName: PropTypes.string.isRequired,
+      created: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+Twitters.defaultProps = {
+  twitters: [],
 };

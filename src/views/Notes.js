@@ -20,5 +20,16 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(Notes);
 
 Notes.propTypes = {
-  notes: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  notes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      created: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+Notes.defaultProps = {
+  notes: [],
 };
