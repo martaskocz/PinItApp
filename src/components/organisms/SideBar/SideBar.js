@@ -25,11 +25,11 @@ const SideBar = ({ type }) => {
 };
 
 SideBar.propTypes = {
-  type: PropTypes.oneOf(['twitter', 'article', 'note']),
+  type: PropTypes.oneOf(['twitters', 'articles', 'notes']),
 };
 
 SideBar.defaultProps = {
-  type: 'twitter',
+  type: 'twitters',
 };
 
 export default SideBar;

@@ -5,9 +5,9 @@ import Card from 'components/molecules/Card/Card';
 import CardSection from 'templates/CardSection';
 
 const Notes = ({ notes }) => (
-  <CardSection type="note">
+  <CardSection type="notes">
     {notes.map(({ content, created, id, title }) => (
-      <Card id={id} type="note" title={title} content={content} created={created} key={id} />
+      <Card id={id} type="notes" title={title} content={content} created={created} key={id} />
     ))}
   </CardSection>
 );

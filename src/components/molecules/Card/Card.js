@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
+import { removeItem as removeAction } from 'actions';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import ParagraphXS from 'components/atoms/ParagraphXS/ParagraphXS';
@@ -15,7 +17,7 @@ class Card extends React.Component {
   handleShowDetails = () => this.setState({ showCardDetails: true });
 
   render() {
-    const { id, articleUrl, content, created, type, title, twitterName } = this.props;
+    const { id, articleUrl, content, created, removeItem, type, title, twitterName } = this.props;
     const { showCardDetails } = this.state;
     const headingType = styles[type];
 
@@ -27,10 +29,10 @@ class Card extends React.Component {
         <div className={`${styles.cardHeading} ${headingType}`}>
           <Heading title={title} />
           <ParagraphXS name={created} />
-          {type === 'twitter' && (
+          {type === 'twitters' && (
             <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
           )}
-          {type === 'article' && (
+          {type === 'articles' && (
             <a
               v-text="icon"
               aria-label="article link"
@@ -49,7 +51,7 @@ class Card extends React.Component {
               upperCase
             />
           </div>
-          <Button label="Remove" secondary />
+          <Button onClick={() => removeItem(type, id)} label="Remove" secondary />
         </div>
       </div>
     );
@@ -57,19 +59,25 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-  type: PropTypes.oneOf(['twitter', 'note', 'article']),
+  type: PropTypes.oneOf(['twitters', 'notes', 'articles']),
   title: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
   twitterName: PropTypes.string,
   articleUrl: PropTypes.string,
   content: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  removeItem: PropTypes.func.isRequired,
 };
 
 Card.defaultProps = {
-  type: 'twitter',
+  type: 'twitters',
   twitterName: null,
   articleUrl: null,
 };
 
-export default Card;
+const mapDispatchToProps = (dispatch) => ({
+  removeItem: (type, id) => dispatch(removeAction(type, id)),
+});
+
+export default connect(null, mapDispatchToProps)(Card); // musimy podac mapDispatchToProps jako drugi argument
+// dlatego pierwszy jest nullem

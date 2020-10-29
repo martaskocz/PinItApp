@@ -5,11 +5,11 @@ import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
 
 const Twitters = ({ twitters }) => (
-  <CardSection type="twitter">
+  <CardSection type="twitters">
     {twitters.map(({ content, created, id, title, twitterName }) => (
       <Card
         id={id}
-        type="twitter"
+        type="twitters"
         title={title}
         twitterName={twitterName}
         created={created}

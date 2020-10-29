@@ -5,11 +5,11 @@ import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
 
 const Articles = ({ articles }) => (
-  <CardSection type="article">
+  <CardSection type="articles">
     {articles.map(({ articleUrl, content, created, id, title }) => (
       <Card
         id={id}
-        type="article"
+        type="articles"
         title={title}
         content={content}
         articleUrl={articleUrl}

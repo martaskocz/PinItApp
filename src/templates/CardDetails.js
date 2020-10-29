@@ -16,11 +16,11 @@ const CardDetails = ({ content, dateInfo, title, twitterName, type }) => {
     <div className={styles.wrapper}>
       <Heading big title={title} />
       <Paragraph date content={dateInfo} />
-      {type === 'twitter' && (
+      {type === 'twitters' && (
         <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
       )}
       <Paragraph content={content} />
-      {type !== 'note' && <Button asPlainText upperCase label={`open this ${type}`} />}
+      {type !== 'notes' && <Button asPlainText upperCase label={`open this ${type}`} />}
       <Button type={type} primary label="CLOSE / SAVE" onClick={handleGoBack} />
       <Button asPlainText label="remove note" />
     </div>
@@ -40,7 +40,7 @@ CardDetails.defaultProps = {
   dateInfo: 'DD-MM-YYYY',
   title: 'Title',
   twitterName: null,
-  type: 'note',
+  type: 'notes',
 };
 
 export default CardDetails;

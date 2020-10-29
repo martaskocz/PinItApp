@@ -8,16 +8,16 @@ const Details = ({ match }) => {
   let type;
   switch (match.path) {
     case routes.twitter:
-      type = 'twitter';
+      type = 'twitters';
       break;
     case routes.article:
-      type = 'article';
+      type = 'articles';
       break;
     case routes.note:
-      type = 'note';
+      type = 'notes';
       break;
     default:
-      type = 'note';
+      type = 'notes';
   }
   return (
     <>
