@@ -122,6 +122,17 @@ const initialState = {
   ],
 };
 
-const rootReducer = (state = initialState) => state;
+const reducer = (state = initialState, action) => {
+  const { payload, type } = action;
+  switch (type) {
+    case 'REMOVE_ITEM':
+      return {
+        ...state, // zwracamy caly stan przed wykonaniem akcji
+        [payload.itemType]: [...state[payload.itemType].filter((item) => item.id !== payload.id)],
+      };
+    default:
+      return state;
+  }
+};
 
-export default rootReducer;
+export default reducer;
