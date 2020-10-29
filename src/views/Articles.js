@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
-import { articles } from './articlesData';
 
-const Articles = () => (
+const Articles = ({ articles }) => (
   <CardSection type="article">
     {articles.map(({ articleUrl, content, created, id, title }) => (
       <Card
@@ -18,4 +19,14 @@ const Articles = () => (
     ))}
   </CardSection>
 );
-export default Articles;
+
+const mapStateToProps = (state) => {
+  const { articles } = state;
+  return { articles };
+};
+
+export default connect(mapStateToProps)(Articles);
+
+Articles.propTypes = {
+  articles: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+};
