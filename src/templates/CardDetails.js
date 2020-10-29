@@ -8,9 +8,7 @@ import styles from './CardDetails.module.scss';
 
 const CardDetails = ({ content, dateInfo, title, twitterName, type }) => {
   const history = useHistory();
-  const handleGoBack = () => {
-    history.goBack();
-  };
+  const handleGoBack = () => history.replace(history.location.pathname.slice(0, -2));
 
   return (
     <div className={styles.wrapper}>
