@@ -9,28 +9,58 @@ import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import Heading from 'components/atoms/Heading/Heading';
 import NewItemBar from 'components/organisms/NewItemBar/NewItemBar';
 import PlusIcon from 'assets/icons/plusIcon.svg';
+import CloseIcon from 'assets/icons/close.svg';
 import styles from './CardSection.module.scss';
 
-const CardSection = ({ children, numberOfItems, pageContext }) => {
-  const numberOfItemsLabel =
-    numberOfItems === 1
-      ? `${numberOfItems} ${pageContext.slice(0, -1)}`
-      : `${numberOfItems} ${pageContext}`;
+class CardSection extends React.Component {
+  state = {
+    showNewItemBar: false,
+  };
 
-  return (
-    <>
-      <SideBar pageContext={pageContext} />
-      <div className={styles.cardSectionNav}>
-        <Input withSearchIcon id="search" placeholder="search" />
-        <Heading big title={pageContext} />
-        <Paragraph additionalInfo content={numberOfItemsLabel} />
-      </div>
-      <div className={styles.cardSection}>{children}</div>
-      <ButtonIcon type={pageContext} to="" icon={PlusIcon} />
-      <NewItemBar />
-    </>
-  );
-};
+  toggleAddNewItem = () => {
+    this.setState((state) => ({
+      showNewItemBar: !state.showNewItemBar,
+    }));
+  };
+
+  render() {
+    const { children, numberOfItems, pageContext } = this.props;
+    const { showNewItemBar } = this.state;
+    const numberOfItemsLabel =
+      numberOfItems === 1
+        ? `${numberOfItems} ${pageContext.slice(0, -1)}`
+        : `${numberOfItems} ${pageContext}`;
+
+    return (
+      <>
+        <SideBar pageContext={pageContext} />
+        <div className={styles.cardSectionNav}>
+          <Input withSearchIcon id="search" placeholder="search" />
+          <Heading big title={pageContext} />
+          <Paragraph additionalInfo content={numberOfItemsLabel} />
+        </div>
+        <div className={styles.cardSection}>{children}</div>
+        {!showNewItemBar && (
+          <ButtonIcon
+            onClick={this.toggleAddNewItem.bind(this)}
+            type={pageContext}
+            to=""
+            icon={PlusIcon}
+          />
+        )}
+        {showNewItemBar && <NewItemBar />}
+        {showNewItemBar && (
+          <ButtonIcon
+            onClick={this.toggleAddNewItem.bind(this)}
+            type={pageContext}
+            to=""
+            icon={CloseIcon}
+          />
+        )}
+      </>
+    );
+  }
+}
 
 CardSection.propTypes = {
   children: PropTypes.arrayOf(
