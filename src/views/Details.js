@@ -1,38 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { routes } from 'routes/routes';
+import withContext from 'hoc/withContext';
 import CardDetails from 'templates/CardDetails';
 import SideBar from 'components/organisms/SideBar/SideBar';
 
-const Details = ({ match }) => {
-  let type;
-  switch (match.path) {
-    case routes.twitter:
-      type = 'twitters';
-      break;
-    case routes.article:
-      type = 'articles';
-      break;
-    case routes.note:
-      type = 'notes';
-      break;
-    default:
-      type = 'notes';
-  }
-  return (
-    <>
-      <SideBar type={type} />
-      <CardDetails type={type} />
-    </>
-  );
-};
+const Details = ({ pageContext }) => (
+  <>
+    <SideBar pageContext={pageContext} />
+    <CardDetails pageContext={pageContext} />
+  </>
+);
 
 Details.propTypes = {
-  match: PropTypes.shape(),
+  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
 };
 
-Details.defaultProps = {
-  match: {},
-};
-
-export default Details;
+export default withContext(Details);

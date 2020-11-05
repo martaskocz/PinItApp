@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import withContext from 'hoc/withContext';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
 import styles from './CardDetails.module.scss';
 
-const CardDetails = ({ content, dateInfo, title, twitterName, type }) => {
+const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => {
   const history = useHistory();
   const handleGoBack = () => history.replace(history.location.pathname.slice(0, -2));
 
@@ -14,14 +15,14 @@ const CardDetails = ({ content, dateInfo, title, twitterName, type }) => {
     <div className={styles.wrapper}>
       <Heading big title={title} />
       <Paragraph date content={dateInfo} />
-      {type === 'twitters' && (
+      {pageContext === 'twitters' && (
         <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
       )}
       <Paragraph content={content} />
-      {type !== 'notes' && (
-        <Button asPlainText upperCase label={`open this ${type.slice(0, -1)}`} />
+      {pageContext !== 'notes' && (
+        <Button asPlainText upperCase label={`open this ${pageContext.slice(0, -1)}`} />
       )}
-      <Button type={type} primary label="CLOSE / SAVE" onClick={handleGoBack} />
+      <Button type={pageContext} primary label="CLOSE / SAVE" onClick={handleGoBack} />
       <Button asPlainText label="remove note" />
     </div>
   );
@@ -32,7 +33,7 @@ CardDetails.propTypes = {
   dateInfo: PropTypes.string,
   title: PropTypes.string,
   twitterName: PropTypes.string,
-  type: PropTypes.string,
+  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
 };
 
 CardDetails.defaultProps = {
@@ -40,7 +41,6 @@ CardDetails.defaultProps = {
   dateInfo: 'DD-MM-YYYY',
   title: 'Title',
   twitterName: null,
-  type: 'notes',
 };
 
-export default CardDetails;
+export default withContext(CardDetails);

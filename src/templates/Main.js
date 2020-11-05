@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
+import PageContext from 'context';
 import GlobalStyle from 'components/theme/GlobalStyle';
 
 class Main extends React.Component {
@@ -31,10 +32,13 @@ class Main extends React.Component {
 
   render() {
     const { children } = this.props;
+    const { pageType } = this.state;
     return (
       <div>
-        <GlobalStyle />
-        <>{children}</>
+        <PageContext.Provider value={pageType}>
+          <GlobalStyle />
+          <>{children}</>
+        </PageContext.Provider>
       </div>
     );
   }

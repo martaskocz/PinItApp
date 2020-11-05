@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux';
+import withContext from 'hoc/withContext';
 import { removeItem as removeAction } from 'actions';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
@@ -17,22 +18,31 @@ class Card extends React.Component {
   handleShowDetails = () => this.setState({ showCardDetails: true });
 
   render() {
-    const { id, articleUrl, content, created, removeItem, type, title, twitterName } = this.props;
+    const {
+      id,
+      articleUrl,
+      content,
+      created,
+      removeItem,
+      pageContext,
+      title,
+      twitterName,
+    } = this.props;
     const { showCardDetails } = this.state;
-    const headingType = styles[type];
+    const headingType = styles[pageContext];
 
     if (showCardDetails) {
-      return <Redirect to={`${type}/${id}`} />;
+      return <Redirect to={`${pageContext}/${id}`} />;
     }
     return (
       <div className={styles.card}>
         <div className={`${styles.cardHeading} ${headingType}`}>
           <Heading title={title} />
           <ParagraphXS name={created} />
-          {type === 'twitters' && (
+          {pageContext === 'twitters' && (
             <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
           )}
-          {type === 'articles' && (
+          {pageContext === 'articles' && (
             <a
               v-text="icon"
               aria-label="article link"
@@ -51,7 +61,7 @@ class Card extends React.Component {
               upperCase
             />
           </div>
-          <Button onClick={() => removeItem(type, id)} label="Remove" secondary />
+          <Button onClick={() => removeItem(pageContext, id)} label="Remove" secondary />
         </div>
       </div>
     );
@@ -59,7 +69,7 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-  type: PropTypes.oneOf(['twitters', 'notes', 'articles']),
+  pageContext: PropTypes.oneOf(['twitters', 'notes', 'articles']).isRequired,
   title: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
   twitterName: PropTypes.string,
@@ -70,7 +80,6 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
-  type: 'twitters',
   twitterName: null,
   articleUrl: null,
 };
@@ -79,5 +88,5 @@ const mapDispatchToProps = (dispatch) => ({
   removeItem: (type, id) => dispatch(removeAction(type, id)),
 });
 
-export default connect(null, mapDispatchToProps)(Card); // musimy podac mapDispatchToProps jako drugi argument
-// dlatego pierwszy jest nullem
+export default connect(null, mapDispatchToProps)(withContext(Card)); // musimy podac mapDispatchToProps jako drugi
+// argument, dlatego pierwszy jest nullem

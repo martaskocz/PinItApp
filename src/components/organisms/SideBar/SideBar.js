@@ -8,8 +8,8 @@ import TwitterIcon from 'assets/icons/twitter.svg';
 import LogoutIcon from 'assets/icons/logout.svg';
 import styles from './SideBar.module.scss';
 
-const SideBar = ({ type }) => {
-  const activeType = styles[type];
+const SideBar = ({ pageContext }) => {
+  const activeType = styles[pageContext];
 
   return (
     <div className={`${styles.wrapper} ${activeType}`}>
@@ -25,11 +25,7 @@ const SideBar = ({ type }) => {
 };
 
 SideBar.propTypes = {
-  type: PropTypes.oneOf(['twitters', 'articles', 'notes']),
-};
-
-SideBar.defaultProps = {
-  type: 'twitters',
+  pageContext: PropTypes.oneOf(['twitters', 'articles', 'notes']).isRequired,
 };
 
 export default SideBar;
