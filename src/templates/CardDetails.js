@@ -18,7 +18,9 @@ const CardDetails = ({ content, dateInfo, title, twitterName, type }) => {
         <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
       )}
       <Paragraph content={content} />
-      {type !== 'notes' && <Button asPlainText upperCase label={`open this ${type}`} />}
+      {type !== 'notes' && (
+        <Button asPlainText upperCase label={`open this ${type.slice(0, -1)}`} />
+      )}
       <Button type={type} primary label="CLOSE / SAVE" onClick={handleGoBack} />
       <Button asPlainText label="remove note" />
     </div>
