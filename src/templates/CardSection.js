@@ -25,7 +25,7 @@ const CardSection = ({ children, numberOfItems, pageContext }) => {
         <Paragraph additionalInfo content={numberOfItemsLabel} />
       </div>
       <div className={styles.cardSection}>{children}</div>
-      <ButtonIcon to="" icon={PlusIcon} />
+      <ButtonIcon type={pageContext} to="" icon={PlusIcon} />
     </>
   );
 };

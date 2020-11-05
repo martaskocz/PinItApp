@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import withContext from 'hoc/withContext';
 import styles from './ButtonIcon.module.scss';
 
-const ButtonIcon = ({ active, onClick, icon, pageContext }) => {
-  const classValue = classNames(styles.buttonIcon, styles[`${pageContext}`], {
+const ButtonIcon = ({ active, onClick, icon, type }) => {
+  const classValue = classNames(styles.buttonIcon, styles[`${type}`], {
     [styles.active]: active,
   });
 
@@ -24,7 +23,7 @@ ButtonIcon.propTypes = {
   active: PropTypes.bool,
   icon: PropTypes.string,
   onClick: PropTypes.func,
-  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
+  type: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
 };
 
 ButtonIcon.defaultProps = {
@@ -33,4 +32,4 @@ ButtonIcon.defaultProps = {
   onClick: () => {},
 };
 
-export default withContext(ButtonIcon);
+export default ButtonIcon;
