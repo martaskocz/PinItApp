@@ -6,9 +6,6 @@
   padding-left: 45px;
   margin-bottom: 27px;
   background-color: $grey100;
-  background-image: url('../../../assets/icons/search.svg');
-  background-repeat: no-repeat;
-  background-position: 14px;
   border: none;
   border-radius: 20px;
   color: $grey200;
@@ -16,4 +13,10 @@
   font-size: 1.2rem;
   font-weight: $semibold;
   font-family: 'Montserrat', sans-serif;
+}
+
+.withSearchIcon {
+  background-image: url('../../../assets/icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: 14px;
 }

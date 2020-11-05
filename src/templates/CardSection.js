@@ -7,6 +7,7 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Input from 'components/atoms/Input/Input';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import Heading from 'components/atoms/Heading/Heading';
+import NewItemBar from 'components/organisms/NewItemBar/NewItemBar';
 import PlusIcon from 'assets/icons/plusIcon.svg';
 import styles from './CardSection.module.scss';
 
@@ -20,12 +21,13 @@ const CardSection = ({ children, numberOfItems, pageContext }) => {
     <>
       <SideBar pageContext={pageContext} />
       <div className={styles.cardSectionNav}>
-        <Input />
+        <Input withSearchIcon id="search" placeholder="search" />
         <Heading big title={pageContext} />
         <Paragraph additionalInfo content={numberOfItemsLabel} />
       </div>
       <div className={styles.cardSection}>{children}</div>
       <ButtonIcon type={pageContext} to="" icon={PlusIcon} />
+      <NewItemBar />
     </>
   );
 };
