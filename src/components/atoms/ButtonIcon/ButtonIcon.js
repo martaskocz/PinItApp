@@ -1,15 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import withContext from 'hoc/withContext';
 import styles from './ButtonIcon.module.scss';
 
-const ButtonIcon = ({ active, icon }) => {
-  const buttonClass = active ? styles.active : styles.buttonIcon;
+const ButtonIcon = ({ active, onClick, icon, pageContext }) => {
+  const classValue = classNames(styles.buttonIcon, styles[`${pageContext}`], {
+    [styles.active]: active,
+  });
 
   return (
     <button
-      type="button"
+      onClick={onClick}
       aria-label="Save"
-      className={buttonClass}
+      type="button"
+      className={classValue}
       style={{ backgroundImage: `url(${icon})` }}
     />
   );
@@ -18,11 +23,14 @@ const ButtonIcon = ({ active, icon }) => {
 ButtonIcon.propTypes = {
   active: PropTypes.bool,
   icon: PropTypes.string,
+  onClick: PropTypes.func,
+  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
 };
 
 ButtonIcon.defaultProps = {
   active: false,
   icon: 'src/assets/icons/article.svg',
+  onClick: () => {},
 };
 
-export default ButtonIcon;
+export default withContext(ButtonIcon);

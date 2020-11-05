@@ -5,7 +5,9 @@ import withContext from 'hoc/withContext';
 import SideBar from 'components/organisms/SideBar/SideBar';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Input from 'components/atoms/Input/Input';
-import Heading from '../components/atoms/Heading/Heading';
+import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
+import Heading from 'components/atoms/Heading/Heading';
+import PlusIcon from 'assets/icons/plusIcon.svg';
 import styles from './CardSection.module.scss';
 
 const CardSection = ({ children, numberOfItems, pageContext }) => {
@@ -23,6 +25,7 @@ const CardSection = ({ children, numberOfItems, pageContext }) => {
         <Paragraph additionalInfo content={numberOfItemsLabel} />
       </div>
       <div className={styles.cardSection}>{children}</div>
+      <ButtonIcon to="" icon={PlusIcon} />
     </>
   );
 };
