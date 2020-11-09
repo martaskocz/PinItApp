@@ -3,8 +3,8 @@
 .input {
   width: 234px;
   height: 35px;
-  padding-left: 45px;
-  margin-bottom: 27px;
+  padding-left: 4.5rem;
+  margin-bottom: 2.5rem;
   background-color: $grey100;
   border: none;
   border-radius: 20px;
@@ -13,10 +13,20 @@
   font-size: 1.2rem;
   font-weight: $semibold;
   font-family: 'Montserrat', sans-serif;
+
+  &::placeholder {
+
+  }
 }
 
 .withSearchIcon {
   background-image: url('../../../assets/icons/search.svg');
   background-repeat: no-repeat;
   background-position: 14px;
+}
+
+.textArea {
+  margin: 10px 0 50px;
+  height: 30vh;
+  width: 35vw;
 }

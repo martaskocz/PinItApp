@@ -5,7 +5,10 @@
   font-size: 2.4rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: $bold;
-  text-transform: capitalize;
+
+  &:first-letter {
+    text-transform: capitalize;
+  }
 
   &XL {
     @extend .heading;

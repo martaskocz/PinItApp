@@ -11,5 +11,17 @@
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  padding: 10rem 5rem;
+  padding: 7rem 5rem;
+}
+
+.twitters {
+  border-left: solid 11px $secondary;
+}
+
+.articles {
+  border-left: solid 11px $tertiary;
+}
+
+.notes {
+  border-left: solid 11px $primary;
 }
