@@ -6,7 +6,7 @@ import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import styles from './NewItemBar.module.scss';
 
-const NewItemBar = ({ type }) => {
+const NewItemBar = ({ type, showItem }) => {
   const typeSingular = type.slice(0, -1);
   const requiredItems = {
     twitter: ['account name', 'description'],
@@ -19,7 +19,7 @@ const NewItemBar = ({ type }) => {
   ].slice(-1)}`;
 
   return (
-    <div className={`${styles.newItemBar} ${styles[type]}`}>
+    <div className={`${styles.newItemBar} ${styles[type]} ${styles[showItem]}`}>
       <Heading big title={`Add a new ${typeSingular}`} />
       <Paragraph newItem content={`A ${typeSingular} requires ${require}`} />
       {typeSingular !== 'twitter' && <Input id="title" placeholder="title" />}
@@ -33,6 +33,7 @@ const NewItemBar = ({ type }) => {
 
 NewItemBar.propTypes = {
   type: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
+  showItem: PropTypes.string.isRequired,
 };
 
 export default NewItemBar;

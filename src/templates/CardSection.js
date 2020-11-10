@@ -18,8 +18,8 @@ class CardSection extends React.Component {
   };
 
   toggleAddNewItem = () => {
-    this.setState((state) => ({
-      showNewItemBar: !state.showNewItemBar,
+    this.setState((prevState) => ({
+      showNewItemBar: !prevState.showNewItemBar,
     }));
   };
 
@@ -48,7 +48,7 @@ class CardSection extends React.Component {
             icon={PlusIcon}
           />
         )}
-        {showNewItemBar && <NewItemBar type={pageContext} />}
+        <NewItemBar showItem={showNewItemBar ? 'show' : 'hide'} type={pageContext} />
         {showNewItemBar && (
           <ButtonIcon
             onClick={this.toggleAddNewItem.bind(this)}
