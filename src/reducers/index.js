@@ -124,13 +124,21 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   const { payload, type } = action;
-  if (type === 'REMOVE_ITEM') {
-    return {
-      ...state, // zwracamy caly stan przed wykonaniem akcji
-      [payload.itemType]: state[payload.itemType].filter((item) => item.id !== payload.id),
-    };
+
+  switch (type) {
+    case 'REMOVE_ITEM':
+      return {
+        ...state, // zwracamy caly stan przed wykonaniem akcji
+        [payload.itemType]: state[payload.itemType].filter((item) => item.id !== payload.id),
+      };
+    case 'ADD_ITEM':
+      return {
+        ...state,
+        [payload.itemType]: [...state[payload.itemType], payload.item],
+      };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;
