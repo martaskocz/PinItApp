@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withContext from 'hoc/withContext';
-import SideBar from 'components/organisms/SideBar/SideBar';
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
-import Input from 'components/atoms/Input/Input';
+import CloseIcon from 'assets/icons/close.svg';
+import PlusIcon from 'assets/icons/plusIcon.svg';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import Heading from 'components/atoms/Heading/Heading';
+import Input from 'components/atoms/Input/Input';
 import NewItemBar from 'components/organisms/NewItemBar/NewItemBar';
-import PlusIcon from 'assets/icons/plusIcon.svg';
-import CloseIcon from 'assets/icons/close.svg';
+import Paragraph from 'components/atoms/Paragraph/Paragraph';
+import SideBar from 'components/organisms/SideBar/SideBar';
 import styles from './CardSection.module.scss';
 
 class CardSection extends React.Component {
@@ -35,17 +35,17 @@ class CardSection extends React.Component {
       <>
         <SideBar pageContext={pageContext} />
         <div className={styles.cardSectionNav}>
-          <Input withSearchIcon id="search" placeholder="search" />
-          <Heading big title={pageContext} />
-          <Paragraph additionalInfo content={numberOfItemsLabel} />
+          <Input id="search" placeholder="search" withSearchIcon />
+          <Heading title={pageContext} big />
+          <Paragraph content={numberOfItemsLabel} additionalInfo />
         </div>
         <div className={styles.cardSection}>{children}</div>
         {!showNewItemBar && (
           <ButtonIcon
-            onClick={this.toggleAddNewItem.bind(this)}
-            type={pageContext}
-            to=""
             icon={PlusIcon}
+            onClick={this.toggleAddNewItem.bind(this)}
+            to=""
+            type={pageContext}
           />
         )}
         <NewItemBar
@@ -54,10 +54,10 @@ class CardSection extends React.Component {
         />
         {showNewItemBar && (
           <ButtonIcon
-            onClick={this.toggleAddNewItem.bind(this)}
-            type={pageContext}
-            to=""
             icon={CloseIcon}
+            onClick={this.toggleAddNewItem.bind(this)}
+            to=""
+            type={pageContext}
           />
         )}
       </>

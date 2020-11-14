@@ -4,13 +4,13 @@ import { connect } from 'react-redux';
 import withContext from 'hoc/withContext';
 import { addItem as addAction } from 'actions';
 import { Formik, Form } from 'formik';
-import Heading from '../../atoms/Heading/Heading';
-import Paragraph from '../../atoms/Paragraph/Paragraph';
-import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
+import Heading from '../../atoms/Heading/Heading';
+import Input from '../../atoms/Input/Input';
+import Paragraph from '../../atoms/Paragraph/Paragraph';
 import styles from './NewItemBar.module.scss';
 
-const NewItemBar = ({ showItem, addItem, pageContext, handleClose }) => {
+const NewItemBar = ({ addItem, handleClose, pageContext, showItem }) => {
   const typeSingular = pageContext.slice(0, -1);
   const requiredItems = {
     twitter: ['account name', 'description'],
@@ -24,60 +24,59 @@ const NewItemBar = ({ showItem, addItem, pageContext, handleClose }) => {
 
   return (
     <div className={`${styles.newItemBar} ${styles[pageContext]} ${styles[showItem]}`}>
-      <Heading big title={`Add a new ${typeSingular}`} />
-      <Paragraph newItem content={`A ${typeSingular} requires ${require}`} />
+      <Heading title={`Add a new ${typeSingular}`} big />
+      <Paragraph content={`A ${typeSingular} requires ${require}`} newItem />
       <Formik
         initialValues={{ title: '', content: '', articleUrl: '', twitterName: '', created: '' }}
         onSubmit={(values) => {
           addItem(pageContext, values);
-          console.log(values);
           handleClose();
         }}
       >
-        {({ values, handleChange, handleBlur }) => (
+        {({ values, handleBlur, handleChange }) => (
           <Form>
             <Input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.title}
-              name="title"
-              type="text"
               id="title"
+              name="title"
+              onBlur={handleBlur}
+              onChange={handleChange}
               placeholder="title"
+              type="text"
+              value={values.title}
             />
             {typeSingular === 'twitter' && (
               <Input
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.twitterName}
                 id="account name"
-                placeholder="account name"
                 name="twitterName"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                placeholder="account name"
                 type="text"
+                value={values.twitterName}
               />
             )}
             {typeSingular === 'article' && (
               <Input
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.articleUrl}
                 id="link"
-                placeholder="link"
                 name="articleUrl"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                placeholder="link"
                 type="text"
+                value={values.articleUrl}
               />
             )}
             <Input
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.content}
               id="description"
-              placeholder="description"
               name="content"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              placeholder="description"
               type="text"
+              value={values.content}
               textArea
             />
-            <Button type="submit" primary activeType={pageContext} upperCase label="add note" />
+            <Button activeType={pageContext} label="add note" type="submit" primary upperCase />
           </Form>
         )}
       </Formik>
@@ -86,10 +85,10 @@ const NewItemBar = ({ showItem, addItem, pageContext, handleClose }) => {
 };
 
 NewItemBar.propTypes = {
-  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
-  showItem: PropTypes.string.isRequired,
   addItem: PropTypes.func.isRequired,
   handleClose: PropTypes.func.isRequired,
+  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
+  showItem: PropTypes.string.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
