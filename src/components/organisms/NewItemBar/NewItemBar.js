@@ -10,7 +10,7 @@ import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import styles from './NewItemBar.module.scss';
 
-const NewItemBar = ({ showItem, addItem, pageContext }) => {
+const NewItemBar = ({ showItem, addItem, pageContext, handleClose }) => {
   const typeSingular = pageContext.slice(0, -1);
   const requiredItems = {
     twitter: ['account name', 'description'],
@@ -31,10 +31,11 @@ const NewItemBar = ({ showItem, addItem, pageContext }) => {
         onSubmit={(values) => {
           addItem(pageContext, values);
           console.log(values);
+          handleClose();
         }}
       >
-        {({ values, handleChange, handleBlur, handleSubmit }) => (
-          <Form onSubmit={handleSubmit}>
+        {({ values, handleChange, handleBlur }) => (
+          <Form>
             <Input
               onChange={handleChange}
               onBlur={handleBlur}
@@ -88,6 +89,7 @@ NewItemBar.propTypes = {
   pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
   showItem: PropTypes.string.isRequired,
   addItem: PropTypes.func.isRequired,
+  handleClose: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

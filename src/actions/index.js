@@ -17,6 +17,7 @@ export const addItem = (itemType, itemContent) => {
       itemType,
       item: {
         id: getId(),
+        created: '15 days',
         ...itemContent,
       },
     },

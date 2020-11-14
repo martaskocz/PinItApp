@@ -48,7 +48,10 @@ class CardSection extends React.Component {
             icon={PlusIcon}
           />
         )}
-        <NewItemBar showItem={showNewItemBar ? 'show' : 'hide'} />
+        <NewItemBar
+          handleClose={this.toggleAddNewItem}
+          showItem={showNewItemBar ? 'show' : 'hide'}
+        />
         {showNewItemBar && (
           <ButtonIcon
             onClick={this.toggleAddNewItem.bind(this)}
