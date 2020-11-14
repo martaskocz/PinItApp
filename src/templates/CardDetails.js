@@ -13,17 +13,17 @@ const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => 
 
   return (
     <div className={styles.wrapper}>
-      <Heading big title={title} />
-      <Paragraph date content={dateInfo} />
+      <Heading title={title} big />
+      <Paragraph content={dateInfo} date />
       {pageContext === 'twitters' && (
         <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
       )}
       <Paragraph content={content} />
       {pageContext !== 'notes' && (
-        <Button asPlainText upperCase label={`open this ${pageContext.slice(0, -1)}`} />
+        <Button label={`open this ${pageContext.slice(0, -1)}`} asPlainText upperCase />
       )}
-      <Button type={pageContext} primary label="CLOSE / SAVE" onClick={handleGoBack} />
-      <Button asPlainText label="remove note" />
+      <Button label="CLOSE / SAVE" onClick={handleGoBack} type={pageContext} primary />
+      <Button label="remove note" asPlainText />
     </div>
   );
 };
