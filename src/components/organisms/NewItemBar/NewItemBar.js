@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import withContext from 'hoc/withContext';
 import { addItem as addAction } from 'actions';
+import { Formik, Form } from 'formik';
 import Heading from '../../atoms/Heading/Heading';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
 import Input from '../../atoms/Input/Input';
@@ -25,17 +26,60 @@ const NewItemBar = ({ showItem, addItem, pageContext }) => {
     <div className={`${styles.newItemBar} ${styles[pageContext]} ${styles[showItem]}`}>
       <Heading big title={`Add a new ${typeSingular}`} />
       <Paragraph newItem content={`A ${typeSingular} requires ${require}`} />
-      {typeSingular !== 'twitter' && <Input id="title" placeholder="title" />}
-      {typeSingular === 'twitter' && <Input id="account name" placeholder="account name" />}
-      {typeSingular === 'article' && <Input id="link" placeholder="link" />}
-      <Input id="description" placeholder="description" textArea />
-      <Button
-        onClick={() => addItem(pageContext, { typeSingular })}
-        primary
-        type={pageContext}
-        upperCase
-        label="add note"
-      />
+      <Formik
+        initialValues={{ title: '', content: '', articleUrl: '', twitterName: '', created: '' }}
+        onSubmit={(values) => {
+          addItem(pageContext, values);
+          console.log(values);
+        }}
+      >
+        {({ values, handleChange, handleBlur, handleSubmit }) => (
+          <Form onSubmit={handleSubmit}>
+            <Input
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.title}
+              name="title"
+              type="text"
+              id="title"
+              placeholder="title"
+            />
+            {typeSingular === 'twitter' && (
+              <Input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.twitterName}
+                id="account name"
+                placeholder="account name"
+                name="twitterName"
+                type="text"
+              />
+            )}
+            {typeSingular === 'article' && (
+              <Input
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.articleUrl}
+                id="link"
+                placeholder="link"
+                name="articleUrl"
+                type="text"
+              />
+            )}
+            <Input
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.content}
+              id="description"
+              placeholder="description"
+              name="content"
+              type="text"
+              textArea
+            />
+            <Button type="submit" primary activeType={pageContext} upperCase label="add note" />
+          </Form>
+        )}
+      </Formik>
     </div>
   );
 };

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Input.module.scss';
 
-const Input = ({ id, placeholder, withSearchIcon, textArea }) => {
+const Input = ({ id, placeholder, withSearchIcon, textArea, ...props }) => {
   const classValue = classNames(styles.input, {
     [styles.withSearchIcon]: withSearchIcon,
     [styles.textArea]: textArea,
   });
 
-  return <input className={classValue} id={id} placeholder={placeholder} />;
+  return <input className={classValue} id={id} placeholder={placeholder} {...props} />;
 };
 
 Input.propTypes = {
