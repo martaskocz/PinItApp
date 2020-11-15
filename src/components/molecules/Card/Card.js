@@ -32,7 +32,14 @@ class Card extends React.Component {
     const headingType = styles[pageContext];
 
     if (showCardDetails) {
-      return <Redirect to={`${pageContext}/${id}`} />;
+      return (
+        <Redirect
+          to={{
+            pathname: `${pageContext}/${id}`,
+            state: { id },
+          }}
+        />
+      );
     }
     return (
       <div className={styles.card}>
@@ -44,10 +51,10 @@ class Card extends React.Component {
           )}
           {pageContext === 'articles' && (
             <a
-              v-text="icon"
               aria-label="article link"
               className={styles.iconLink}
               href={articleUrl}
+              v-text="icon"
             />
           )}
         </div>
@@ -55,13 +62,13 @@ class Card extends React.Component {
           <div className={styles.cardBodyPara}>
             <Paragraph content={content} />
             <Button
-              asPlainText
               label="READ MORE"
               onClick={this.handleShowDetails.bind(this)}
+              asPlainText
               upperCase
             />
           </div>
-          <Button onClick={() => removeItem(pageContext, id)} label="Remove" secondary />
+          <Button label="Remove" onClick={() => removeItem(pageContext, id)} secondary />
         </div>
       </div>
     );

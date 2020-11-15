@@ -14,13 +14,17 @@ const Root = () => (
     <BrowserRouter>
       <Main>
         <Switch>
-          <Route exact path={routes.root} render={() => <Redirect to="/notes" />} />
-          <Route path={routes.note} component={Details} />
-          <Route path={routes.notes} component={Notes} />
-          <Route path={routes.twitter} component={Details} />
-          <Route path={routes.twitters} component={Twitters} />
-          <Route path={routes.article} component={Details} />
-          <Route path={routes.articles} component={Articles} />
+          <Route path={routes.root} render={() => <Redirect to="/notes" />} exact />
+          <Route
+            component={Details}
+            path={routes.note}
+            render={(props) => <Details {...props} />}
+          />
+          <Route component={Notes} path={routes.notes} />
+          <Route component={Details} path={routes.twitter} />
+          <Route component={Twitters} path={routes.twitters} />
+          <Route component={Details} path={routes.article} />
+          <Route component={Articles} path={routes.articles} />
         </Switch>
       </Main>
     </BrowserRouter>

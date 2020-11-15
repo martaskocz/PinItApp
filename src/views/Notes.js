@@ -7,7 +7,7 @@ import CardSection from 'templates/CardSection';
 const Notes = ({ notes }) => (
   <CardSection type="notes">
     {notes.map(({ content, created, id, title }) => (
-      <Card id={id} type="notes" title={title} content={content} created={created} key={id} />
+      <Card content={content} created={created} id={id} key={id} title={title} type="notes" />
     ))}
   </CardSection>
 );

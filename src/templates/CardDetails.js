@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import withContext from 'hoc/withContext';
 import Heading from 'components/atoms/Heading/Heading';
@@ -9,7 +10,8 @@ import styles from './CardDetails.module.scss';
 
 const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => {
   const history = useHistory();
-  const handleGoBack = () => history.replace(history.location.pathname.slice(0, -2));
+  const handleGoBack = () =>
+    history.replace(history.location.pathname.split('/').slice(0, -1).join('/'));
 
   return (
     <div className={styles.wrapper}>
@@ -22,7 +24,13 @@ const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => 
       {pageContext !== 'notes' && (
         <Button label={`open this ${pageContext.slice(0, -1)}`} asPlainText upperCase />
       )}
-      <Button label="CLOSE / SAVE" onClick={handleGoBack} type={pageContext} primary />
+      <Button
+        activeType={pageContext}
+        label="CLOSE / SAVE"
+        onClick={handleGoBack}
+        type={pageContext}
+        primary
+      />
       <Button label="remove note" asPlainText />
     </div>
   );
@@ -43,4 +51,10 @@ CardDetails.defaultProps = {
   twitterName: null,
 };
 
-export default withContext(CardDetails);
+const mapStateToProps = (state, props) => {
+  const { pageContext, location } = props;
+  const cardItem = state[pageContext].filter((item) => item.id === location.state.id);
+  return { ...cardItem[0] };
+};
+
+export default connect(mapStateToProps)(withContext(CardDetails));

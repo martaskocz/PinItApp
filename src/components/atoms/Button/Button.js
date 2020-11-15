@@ -12,7 +12,7 @@ const Button = ({ asPlainText, onClick, label, primary, secondary, activeType, u
   });
 
   return (
-    <button onClick={onClick} type="submit" className={classValue}>
+    <button className={classValue} onClick={onClick} type="submit">
       {label}
     </button>
   );
@@ -24,11 +24,12 @@ Button.propTypes = {
   label: PropTypes.string,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
-  activeType: PropTypes.string.isRequired,
+  activeType: PropTypes.string,
   upperCase: PropTypes.bool,
 };
 
 Button.defaultProps = {
+  activeType: null,
   asPlainText: false,
   onClick: () => {},
   label: 'Close',

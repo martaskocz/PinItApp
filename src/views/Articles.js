@@ -8,13 +8,13 @@ const Articles = ({ articles }) => (
   <CardSection type="articles">
     {articles.map(({ articleUrl, content, created, id, title }) => (
       <Card
-        id={id}
-        type="articles"
-        title={title}
-        content={content}
         articleUrl={articleUrl}
+        content={content}
         created={created}
+        id={id}
         key={id}
+        title={title}
+        type="articles"
       />
     ))}
   </CardSection>
