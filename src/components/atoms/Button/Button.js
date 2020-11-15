@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Button.module.scss';
 
-const Button = ({ asPlainText, onClick, label, primary, secondary, activeType, upperCase }) => {
+const Button = ({ asPlainText, children, onClick, primary, secondary, activeType, upperCase }) => {
   const classValue = classNames(styles.button, styles[`${activeType}`], {
     [styles.primary]: primary,
     [styles.secondary]: secondary,
@@ -13,7 +13,7 @@ const Button = ({ asPlainText, onClick, label, primary, secondary, activeType, u
 
   return (
     <button className={classValue} onClick={onClick} type="submit">
-      {label}
+      {children}
     </button>
   );
 };
@@ -21,7 +21,7 @@ const Button = ({ asPlainText, onClick, label, primary, secondary, activeType, u
 Button.propTypes = {
   asPlainText: PropTypes.bool,
   onClick: PropTypes.func,
-  label: PropTypes.string,
+  children: PropTypes.node.isRequired,
   primary: PropTypes.bool,
   secondary: PropTypes.bool,
   activeType: PropTypes.string,
@@ -32,7 +32,6 @@ Button.defaultProps = {
   activeType: null,
   asPlainText: false,
   onClick: () => {},
-  label: 'Close',
   primary: false,
   secondary: false,
   upperCase: false,

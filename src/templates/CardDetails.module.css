@@ -3,4 +3,12 @@
   padding-top: 11.8rem;
 }
 
+.closeButton {
+  margin-top: 5rem;
+}
+
+.removeButton {
+  margin-top: 2rem;
+}
+
 /*# sourceMappingURL=CardDetails.module.css.map */

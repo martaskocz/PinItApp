@@ -76,7 +76,9 @@ const NewItemBar = ({ addItem, handleClose, pageContext, showItem }) => {
               value={values.content}
               textArea
             />
-            <Button activeType={pageContext} label="add note" type="submit" primary upperCase />
+            <Button activeType={pageContext} type="submit" primary upperCase>
+              add note
+            </Button>
           </Form>
         )}
       </Formik>

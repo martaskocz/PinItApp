@@ -22,16 +22,16 @@ const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => 
       )}
       <Paragraph content={content} />
       {pageContext !== 'notes' && (
-        <Button label={`open this ${pageContext.slice(0, -1)}`} asPlainText upperCase />
+        <Button asPlainText upperCase>
+          open this {pageContext.slice(0, -1)}
+        </Button>
       )}
-      <Button
-        activeType={pageContext}
-        label="CLOSE / SAVE"
-        onClick={handleGoBack}
-        type={pageContext}
-        primary
-      />
-      <Button label="remove note" asPlainText />
+      <div className={styles.closeButton}>
+        <Button activeType={pageContext} onClick={handleGoBack} primary upperCase>
+          close / save
+        </Button>
+      </div>
+      <Button asPlainText>remove note</Button>
     </div>
   );
 };
