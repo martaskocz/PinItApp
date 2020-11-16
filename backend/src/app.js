@@ -10,7 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const routes = require('./routes');
 const User = require('./models/User');
 
-
+require('dotenv').config();
 const PORT = process.env.PORT || 9000;
 
 const app = express();
