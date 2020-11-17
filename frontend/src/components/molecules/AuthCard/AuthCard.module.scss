@@ -1,0 +1,13 @@
+@import 'src/assets/styles/basic';
+
+.wrapper {
+  width: 37rem;
+  height: 32rem;
+  background-color: white;
+  box-shadow: 0 10px 30px -10px $grey100;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

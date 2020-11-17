@@ -3,16 +3,18 @@ import {Formik, Form, Field} from 'formik';
 import axios from 'axios';
 import Logo from 'components/atoms/Logo/Logo';
 import Heading from 'components/atoms/Heading/Heading';
+import AuthCard from 'components/molecules/AuthCard/AuthCard';
 import styles from './UserSignIn.module.scss';
 
 const UserSignIn = () => {
   return(
     <div className={styles.wrapper}>
       <Logo to="/login" big exact/>
-      <Heading big>{`
+      <Heading>{`
      Your new favourite 
      online notes experience
      `}</Heading>
+      <AuthCard/>
       <Formik
         initialValues={{username: "", password: ""}}
         onSubmit={({username, password})=> {
