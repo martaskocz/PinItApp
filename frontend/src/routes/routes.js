@@ -7,5 +7,5 @@ export const routes = {
   article: '/articles/:id',
   articles: '/articles',
   login: '/login',
-  register: '/register'
+  register: '/register',
 };

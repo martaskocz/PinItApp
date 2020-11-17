@@ -9,12 +9,12 @@ const Heading = ({ big, children }) => {
 
 Heading.propTypes = {
   big: PropTypes.bool,
-  children: PropTypes.string
+  children: PropTypes.string,
 };
 
 Heading.defaultProps = {
   big: false,
-  children: 'Heading'
+  children: 'Heading',
 };
 
 export default Heading;

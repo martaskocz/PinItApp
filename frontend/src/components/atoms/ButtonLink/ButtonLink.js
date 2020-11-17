@@ -12,11 +12,7 @@ const ButtonLink = ({ asPlainText, children, exact, to, upperCase }) => {
 
   return (
     <div>
-      <Link
-        className={classValue}
-        exact={exact}
-        to={to}
-        type="submit">
+      <Link className={classValue} exact={exact} to={to} type="submit">
         {children}
       </Link>
     </div>
@@ -34,7 +30,7 @@ ButtonLink.propTypes = {
 ButtonLink.defaultProps = {
   asPlainText: false,
   upperCase: false,
-  exact: false
+  exact: false,
 };
 
 export default ButtonLink;
