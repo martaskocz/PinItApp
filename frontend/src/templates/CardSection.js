@@ -32,7 +32,7 @@ class CardSection extends React.Component {
         : `${numberOfItems} ${pageContext}`;
 
     return (
-      <>
+      <div className={styles.wrapper}>
         <SideBar pageContext={pageContext} />
         <div className={styles.cardSectionNav}>
           <Input id="search" placeholder="search" withSearchIcon />
@@ -60,7 +60,7 @@ class CardSection extends React.Component {
             type={pageContext}
           />
         )}
-      </>
+      </div>
     );
   }
 }

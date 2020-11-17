@@ -8,15 +8,15 @@ import Twitters from './Twitters';
 import Articles from './Articles';
 import Notes from './Notes';
 import Details from './Details';
-import UserSignIn from './UserSignIn';
+import UserMainPage from './UserMainPage';
 
 const Root = () => (
   <Provider store={store}>
     <BrowserRouter>
       <Main>
         <Switch>
-          <Route component={UserSignIn} path={routes.login} exact />
-          <Route component={UserSignIn} path={routes.register} exact />
+          <Route component={UserMainPage} path={routes.login} exact />
+          <Route component={UserMainPage} path={routes.register} exact />
           <Route path={routes.root} render={() => <Redirect to="/notes" />} exact />
           <Route
             component={Details}

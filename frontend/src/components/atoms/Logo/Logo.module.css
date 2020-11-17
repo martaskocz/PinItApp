@@ -1,8 +1,14 @@
 .logo {
   width: 72px;
   height: 45px;
-  background-image: url('../../../assets/icons/logo.svg');
+  background-image: url("../../../assets/icons/logo.svg");
   margin-top: 5vh;
+}
+.logoBig {
+  width: 235px;
+  height: 148px;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 /*# sourceMappingURL=Logo.module.css.map */
