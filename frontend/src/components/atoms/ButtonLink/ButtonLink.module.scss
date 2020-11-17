@@ -1,0 +1,24 @@
+@import 'src/assets/styles/basic';
+
+.button {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.asPlainText {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: $bold;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.upperCase {
+  text-transform: uppercase;
+}
