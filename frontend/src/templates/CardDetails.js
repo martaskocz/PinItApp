@@ -15,7 +15,7 @@ const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => 
 
   return (
     <div className={styles.wrapper}>
-      <Heading title={title} big />
+      <Heading big>{title}</Heading>
       <Paragraph content={dateInfo} date />
       {pageContext === 'twitters' && (
         <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />

@@ -44,7 +44,7 @@ class Card extends React.Component {
     return (
       <div className={styles.card}>
         <div className={`${styles.cardHeading} ${headingType}`}>
-          <Heading title={title} />
+          <Heading>{title}</Heading>
           <ParagraphXS name={created} />
           {pageContext === 'twitters' && (
             <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />

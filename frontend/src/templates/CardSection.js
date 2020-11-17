@@ -36,7 +36,7 @@ class CardSection extends React.Component {
         <SideBar pageContext={pageContext} />
         <div className={styles.cardSectionNav}>
           <Input id="search" placeholder="search" withSearchIcon />
-          <Heading title={pageContext} big />
+          <Heading big>{pageContext}</Heading>
           <Paragraph content={numberOfItemsLabel} additionalInfo />
         </div>
         <div className={styles.cardSection}>{children}</div>

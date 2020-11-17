@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Logo.module.scss';
 
 const Logo = ({ to, exact }) => (
-  <Link type="button" aria-label="Save" className={styles.logo} to={to} exact={exact} />
+  <Link  aria-label="Save" className={styles.logo} exact={exact} to={to} type="button" />
 );
 
 Logo.propTypes = {

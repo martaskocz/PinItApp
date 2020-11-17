@@ -13,7 +13,7 @@ const SideBar = ({ pageContext }) => {
 
   return (
     <div className={`${styles.wrapper} ${activeType}`}>
-      <Logo exact to="/" />
+      <Logo to="/" exact />
       <div className={styles.icons}>
         <ButtonLinkIcon to="/notes" icon={NoteIcon} />
         <ButtonLinkIcon to="/twitters" icon={TwitterIcon} />
