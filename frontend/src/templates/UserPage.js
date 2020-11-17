@@ -5,7 +5,7 @@ import axios from 'axios';
 import Logo from 'components/atoms/Logo/Logo';
 import Heading from 'components/atoms/Heading/Heading';
 import AuthCard from 'components/molecules/AuthCard/AuthCard';
-import styles from './UserSignIn.module.scss';
+import styles from './UserPage.module.scss';
 
 const UserPage = ({ userAction }) => {
   return (
