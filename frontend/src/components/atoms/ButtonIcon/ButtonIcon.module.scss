@@ -17,14 +17,15 @@
 
   -webkit-transition: all 0.4s linear;
   -moz-transition: all 0.4s linear;
-  -o-transition: background-size 1s linear;
-  -ms-transition: background-size 1s linear;
   transition: all 0.4s linear;
 
   &:hover {
     transform: scale(1.2, 1.2);
-    transition: all 0.4s ease-in-out;
     box-shadow: 0px 10px 10px -10px black;
+
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    transition: all 0.4s ease-in-out;
   }
 }
 
