@@ -9,7 +9,7 @@ import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import ButtonLink from '../../atoms/ButtonLink/ButtonLink';
 
-const AuthCard = ({ authenticate, userAction }) => {
+const AuthCard = ({ authenticate, userAction, userID }) => {
   let userActionContent = {};
   if (userAction === 'login') {
     userActionContent = {
@@ -79,8 +79,10 @@ AuthCard.propTypes = {
   userAction: PropTypes.string.isRequired
 };
 
+const mapStateToProps = ({userID=null}) => ({userID});
+
 const mapDispatchToProps = dispatch => ({
   authenticate: (username, password) => dispatch(authAction(username, password))
 });
 
-export default connect(null, mapDispatchToProps)(AuthCard);
+export default connect(mapStateToProps, mapDispatchToProps)(AuthCard);

@@ -1,3 +1,5 @@
+import {ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS} from '../actions';
+
 const initialState = {
   twitters: [
     {
@@ -126,12 +128,17 @@ const reducer = (state = initialState, action) => {
   const { payload, type } = action;
 
   switch (type) {
-    case 'REMOVE_ITEM':
+    case AUTH_SUCCESS:
+      return {
+        ...state,
+        userID: payload.data._id
+      };
+    case REMOVE_ITEM:
       return {
         ...state, // zwracamy caly stan przed wykonaniem akcji
         [payload.itemType]: state[payload.itemType].filter((item) => item.id !== payload.id),
       };
-    case 'ADD_ITEM':
+    case ADD_ITEM:
       return {
         ...state,
         [payload.itemType]: [...state[payload.itemType], payload.item],
