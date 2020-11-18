@@ -7,7 +7,7 @@ import { removeItem as removeAction } from 'actions';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import ParagraphXS from 'components/atoms/ParagraphXS/ParagraphXS';
-import Button from 'components/atoms/ButtonLink/ButtonLink';
+import Button from 'components/atoms/Button/Button';
 import styles from './Card.module.scss';
 
 class Card extends React.Component {

@@ -10,11 +10,11 @@ const ButtonIcon = ({ active, onClick, icon, type }) => {
 
   return (
     <button
-      onClick={onClick}
       aria-label="Save"
-      type="button"
       className={classValue}
+      onClick={onClick}
       style={{ backgroundImage: `url(${icon})` }}
+      type="button"
     />
   );
 };
