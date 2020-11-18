@@ -12,12 +12,24 @@
   border-radius: 20px;
   color: $black;
   outline: none;
-  text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: $semibold;
   font-family: 'Montserrat', sans-serif;
 
-  &::placeholder {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    text-transform: uppercase;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    text-transform: uppercase;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    text-transform: uppercase;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    text-transform: uppercase;
+  }
+  &::placeholder { /* Recent browsers */
+    text-transform: uppercase;
   }
 }
 

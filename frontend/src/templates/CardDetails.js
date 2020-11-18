@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import withContext from 'hoc/withContext';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
-import Button from 'components/atoms/ButtonLink/ButtonLink';
+import Button from 'components/atoms/Button/Button';
 import styles from './CardDetails.module.scss';
 
 const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => {

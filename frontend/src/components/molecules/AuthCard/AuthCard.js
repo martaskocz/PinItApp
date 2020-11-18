@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Formik, Form } from 'formik';
+import {authenticate as authAction } from '../../../actions';
 import styles from './AuthCard.module.scss';
 import Heading from '../../atoms/Heading/Heading';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import ButtonLink from '../../atoms/ButtonLink/ButtonLink';
 
-const AuthCard = ({ userAction }) => {
+const AuthCard = ({ authenticate, userAction }) => {
   let userActionContent = {};
   if (userAction === 'login') {
     userActionContent = {
@@ -27,12 +30,43 @@ const AuthCard = ({ userAction }) => {
   return (
     <div className={styles.wrapper}>
       <Heading>{userActionContent.title}</Heading>
-      <Input id="login" placeholder="login" />
-      <Input id="password" placeholder="password" />
-      {userAction === 'register' && <Input id="confirmPassword" placeholder="confirm password" />}
-      <Button primary upperCase>
-        {userActionContent.button}
-      </Button>
+      <Formik
+        initialValues={{ username: '', password: '' }}
+        onSubmit={({ username, password }) => {
+          authenticate(username, password)
+        }}
+      >
+        {({values, handleBlur, handleChange}) => (
+          <Form>
+            <Input
+              id="username"
+              name="username"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              placeholder="login"
+              type="text"
+              value={values.username}
+            />
+            <Input
+              id="password"
+              name="password"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              placeholder="password"
+              type="password"
+              value={values.password}
+            />
+            {userAction === 'register' &&
+            <Input
+              id="confirmPassword"
+              placeholder="confirm password"
+            />}
+            <Button type="submit" primary upperCase>
+              {userActionContent.button}
+            </Button>
+          </Form>
+        )}
+      </Formik>
       <ButtonLink to={userActionContent.buttonLinkTo} asPlainText upperCase>
         {userActionContent.buttonSecond}
       </ButtonLink>
@@ -41,7 +75,12 @@ const AuthCard = ({ userAction }) => {
 };
 
 AuthCard.propTypes = {
-  userAction: PropTypes.string.isRequired,
+  authenticate: PropTypes.func.isRequired,
+  userAction: PropTypes.string.isRequired
 };
 
-export default AuthCard;
+const mapDispatchToProps = dispatch => ({
+  authenticate: (username, password) => dispatch(authAction(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(AuthCard);
