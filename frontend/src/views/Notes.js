@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Card from 'components/molecules/Card/Card';
 import CardSection from 'templates/CardSection';
+import withContext from 'hoc/withContext';
 
 const Notes = ({ notes }) => (
-  <CardSection type="notes">
+  <CardSection>
     {notes.map(({ content, created, id, title }) => (
-      <Card content={content} created={created} id={id} key={id} title={title} type="notes" />
+      <Card content={content} created={created} id={id} key={id} title={title} />
     ))}
   </CardSection>
 );
@@ -17,7 +18,7 @@ const mapStateToProps = (state) => {
   return { notes };
 };
 
-export default connect(mapStateToProps)(Notes);
+export default connect(mapStateToProps)(withContext(Notes));
 
 Notes.propTypes = {
   notes: PropTypes.arrayOf(

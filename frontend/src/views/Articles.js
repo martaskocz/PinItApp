@@ -5,7 +5,7 @@ import CardSection from 'templates/CardSection';
 import Card from 'components/molecules/Card/Card';
 
 const Articles = ({ articles }) => (
-  <CardSection type="articles">
+  <CardSection>
     {articles.map(({ articleUrl, content, created, id, title }) => (
       <Card
         articleUrl={articleUrl}
@@ -14,7 +14,6 @@ const Articles = ({ articles }) => (
         id={id}
         key={id}
         title={title}
-        type="articles"
       />
     ))}
   </CardSection>

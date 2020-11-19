@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import withContext from 'hoc/withContext';
 import CloseIcon from 'assets/icons/close.svg';
 import PlusIcon from 'assets/icons/plusIcon.svg';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
@@ -10,6 +9,7 @@ import Input from 'components/atoms/Input/Input';
 import NewItemBar from 'components/organisms/NewItemBar/NewItemBar';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import SideBar from 'components/organisms/SideBar/SideBar';
+import withContext from 'hoc/withContext';
 import styles from './CardSection.module.scss';
 
 class CardSection extends React.Component {
@@ -74,7 +74,7 @@ CardSection.propTypes = {
       created: PropTypes.string,
     }),
   ).isRequired,
-  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
+  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles', 'login']).isRequired,
   numberOfItems: PropTypes.number.isRequired,
 };
 

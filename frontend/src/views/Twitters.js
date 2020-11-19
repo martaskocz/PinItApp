@@ -8,12 +8,12 @@ const Twitters = ({ twitters }) => (
   <CardSection>
     {twitters.map(({ content, created, id, title, twitterName }) => (
       <Card
+        content={content}
+        created={created}
         id={id}
+        key={id}
         title={title}
         twitterName={twitterName}
-        created={created}
-        content={content}
-        key={id}
       />
     ))}
   </CardSection>

@@ -24,11 +24,11 @@ const Root = () => (
             path={routes.note}
             render={(props) => <Details {...props} />}
           />
-          <Route component={Notes} path={routes.notes} />
+          <Route exact component={Notes} path={routes.notes} />
           <Route component={Details} path={routes.twitter} />
-          <Route component={Twitters} path={routes.twitters} />
+          <Route exact component={Twitters} path={routes.twitters} />
           <Route component={Details} path={routes.article} />
-          <Route component={Articles} path={routes.articles} />
+          <Route exact component={Articles} path={routes.articles} />
         </Switch>
       </Main>
     </BrowserRouter>

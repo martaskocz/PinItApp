@@ -39,7 +39,7 @@ const AuthCard = ({ authenticate, userAction, userID }) => {
       >
         {({values, handleBlur, handleChange}) => {
           if(userID){
-            return <Redirect to="/"/>
+            return <Redirect to="/notes"/>
           }
           return (
             <Form>
@@ -82,8 +82,13 @@ const AuthCard = ({ authenticate, userAction, userID }) => {
 
 AuthCard.propTypes = {
   authenticate: PropTypes.func.isRequired,
-  userAction: PropTypes.string.isRequired
+  userAction: PropTypes.string.isRequired,
+  userID: PropTypes.string
 };
+
+AuthCard.defaultProps = {
+  userID: ''
+}
 
 const mapStateToProps = ({userID=null}) => ({userID});
 
