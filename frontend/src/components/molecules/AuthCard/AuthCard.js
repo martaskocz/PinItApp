@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import {authenticate as authAction } from '../../../actions';
 import styles from './AuthCard.module.scss';
@@ -36,36 +37,41 @@ const AuthCard = ({ authenticate, userAction, userID }) => {
           authenticate(username, password)
         }}
       >
-        {({values, handleBlur, handleChange}) => (
-          <Form>
-            <Input
-              id="username"
-              name="username"
-              onBlur={handleBlur}
-              onChange={handleChange}
-              placeholder="login"
-              type="text"
-              value={values.username}
-            />
-            <Input
-              id="password"
-              name="password"
-              onBlur={handleBlur}
-              onChange={handleChange}
-              placeholder="password"
-              type="password"
-              value={values.password}
-            />
-            {userAction === 'register' &&
-            <Input
-              id="confirmPassword"
-              placeholder="confirm password"
-            />}
-            <Button type="submit" primary upperCase>
-              {userActionContent.button}
-            </Button>
-          </Form>
-        )}
+        {({values, handleBlur, handleChange}) => {
+          if(userID){
+            return <Redirect to="/"/>
+          }
+          return (
+            <Form>
+              <Input
+                id="username"
+                name="username"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                placeholder="login"
+                type="text"
+                value={values.username}
+              />
+              <Input
+                id="password"
+                name="password"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                placeholder="password"
+                type="password"
+                value={values.password}
+              />
+              {userAction === 'register' &&
+              <Input
+                id="confirmPassword"
+                placeholder="confirm password"
+              />}
+              <Button type="submit" primary upperCase>
+                {userActionContent.button}
+              </Button>
+            </Form>
+            )
+        }}
       </Formik>
       <ButtonLink to={userActionContent.buttonLinkTo} asPlainText upperCase>
         {userActionContent.buttonSecond}
