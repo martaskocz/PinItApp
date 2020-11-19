@@ -22,7 +22,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(session({
-  secret: 'roman',
+  secret: 'marta',
   resave: false,
   saveUninitialized: true,
 }));
@@ -35,7 +35,7 @@ mongoose.connect(process.env.NODE_DATABASE, { useNewUrlParser: true });
 const conn = mongoose.connection;
 conn.on('error', console.error.bind(console, 'connection error:'));
 conn.once('open', () => {
-  console.log('Connected to mlab database!');
+  console.log('Connected to MongoDB database!');
   app.listen(PORT, () => console.log(`App is listening on port ${PORT}!`));
   app.use('/api', routes);
 });
