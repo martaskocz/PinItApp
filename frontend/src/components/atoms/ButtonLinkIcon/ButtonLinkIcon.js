@@ -8,23 +8,23 @@ const ButtonLinkIcon = ({ icon, to, exact, logout }) => {
     <div>
       {logout && (
         <Link
-          type="button"
           aria-label="Save"
           className={styles.buttonIcon}
-          to={to}
           exact={exact}
           style={{ backgroundImage: `url(${icon})` }}
+          to={to}
+          type="button"
         />
       )}
       {!logout && (
         <NavLink
-          type="button"
-          aria-label="Save"
           activeClassName={styles.active}
+          aria-label="Save"
           className={styles.buttonIcon}
-          to={to}
           exact={exact}
           style={{ backgroundImage: `url(${icon})` }}
+          to={to}
+          type="button"
         />
       )}
     </div>
