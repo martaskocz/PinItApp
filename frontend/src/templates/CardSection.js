@@ -74,7 +74,7 @@ CardSection.propTypes = {
       created: PropTypes.string,
     }),
   ).isRequired,
-  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles', 'login']).isRequired,
+  pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
   numberOfItems: PropTypes.number.isRequired,
 };
 

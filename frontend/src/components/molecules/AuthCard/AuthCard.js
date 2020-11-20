@@ -88,7 +88,7 @@ AuthCard.propTypes = {
 
 AuthCard.defaultProps = {
   userID: ''
-}
+};
 
 const mapStateToProps = ({userID=null}) => ({userID});
 

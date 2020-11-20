@@ -23,7 +23,7 @@ class Main extends React.Component {
     const {
       location: { pathname },
     } = this.props;
-    if(pageTypes.includes(pathname)){
+    if(pageTypes.includes(pathname.slice(1))){
       const [currentPage] = pageTypes.filter((page) => pathname.includes(page));
       if (prevState.pageType !== currentPage) {
         this.setState({ pageType: currentPage });
