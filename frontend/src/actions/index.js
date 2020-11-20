@@ -5,6 +5,9 @@ export const ADD_ITEM = 'ADD_ITEM';
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAILURE = 'AUTH_FAILURE';
+export const FETCH_REQUEST = 'FETCH_REQUEST';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_FAILURE = 'FETCH_FAILURE';
 
 export const removeItem = (itemType, id) => {
   return {
@@ -41,11 +44,36 @@ export const authenticate = (username, password) => dispatch => {
     username, password
   })
     .then(payload => {
-      console.log(payload);
       dispatch({type: AUTH_SUCCESS, payload})
     })
     .catch(err => {
       console.log(err);
       dispatch({type: AUTH_FAILURE})
+    })
+};
+
+export const fetchItems = (itemType) => (dispatch, getState) => {
+  dispatch({
+    type: FETCH_REQUEST
+  });
+
+  return axios.get('http://localhost:9000/api/notes/type', {
+    params: {
+      userID: getState().userID,
+      type: itemType
+    }
+  })
+    .then(({data}) => {
+      dispatch({
+        type: FETCH_SUCCESS,
+        payload: {
+          data,
+          itemType
+        }
+      })
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({type: FETCH_FAILURE})
     })
 };

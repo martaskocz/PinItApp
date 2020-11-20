@@ -1,9 +1,9 @@
-import {ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS} from '../actions';
+import {ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS, FETCH_SUCCESS} from '../actions';
 
 const initialState = {
   twitters: [
     {
-      id: 1,
+      id: "1",
       title: 'React on my mind',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -11,7 +11,7 @@ const initialState = {
       created: '1 day',
     },
     {
-      id: 2,
+      id: "2",
       title: 'Live React',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -19,7 +19,7 @@ const initialState = {
       created: '3 days',
     },
     {
-      id: 3,
+      id: "3",
       title: 'You do not know JS',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -27,7 +27,7 @@ const initialState = {
       created: '12 days',
     },
     {
-      id: 4,
+      id: "4",
       title: 'Cool vibes',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -35,7 +35,7 @@ const initialState = {
       created: '13 days',
     },
     {
-      id: 5,
+      id: "5",
       title: 'Winter is coming',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -45,35 +45,35 @@ const initialState = {
   ],
   notes: [
     {
-      id: 1,
+      id: "1",
       title: 'React on my mind',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       created: '1 day',
     },
     {
-      id: 2,
+      id: "2",
       title: 'Live React',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       created: '3 days',
     },
     {
-      id: 3,
+      id: "3",
       title: 'You do not know JS',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       created: '12 days',
     },
     {
-      id: 4,
+      id: "4",
       title: 'Cool vibes',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       created: '13 days',
     },
     {
-      id: 5,
+      id: "5",
       title: 'Winter is coming',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -82,7 +82,7 @@ const initialState = {
   ],
   articles: [
     {
-      id: 1,
+      id: "1",
       title: 'React on my mind',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -90,7 +90,7 @@ const initialState = {
       created: '1 day',
     },
     {
-      id: 2,
+      id: "2",
       title: 'Live React',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -98,7 +98,7 @@ const initialState = {
       created: '3 days',
     },
     {
-      id: 3,
+      id: "3",
       title: 'You do not know JS',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -106,7 +106,7 @@ const initialState = {
       created: '12 days',
     },
     {
-      id: 4,
+      id: "4",
       title: 'Cool vibes',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -114,7 +114,7 @@ const initialState = {
       created: '13 days',
     },
     {
-      id: 5,
+      id: "5",
       title: 'Winter is coming',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -132,6 +132,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userID: payload.data._id
+      };
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        [payload.itemType]: [...payload.data]
       };
     case REMOVE_ITEM:
       return {

@@ -23,10 +23,9 @@ export default connect(mapStateToProps)(withContext(Notes));
 Notes.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      content: PropTypes.string.isRequired,
-      created: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired
     }),
   ),
 };

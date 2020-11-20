@@ -24,7 +24,7 @@ const NewItemBar = ({ addItem, handleClose, pageContext, showItem }) => {
 
   return (
     <div className={`${styles.newItemBar} ${styles[pageContext]} ${styles[showItem]}`}>
-      <Heading big>Add a new {typeSingular}</Heading>
+      <Heading big>{`Add a new ${typeSingular}`}</Heading>
       <Paragraph content={`A ${typeSingular} requires ${require}`} newItem />
       <Formik
         initialValues={{ title: '', content: '', articleUrl: '', twitterName: '', created: '' }}
