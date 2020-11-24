@@ -9,8 +9,9 @@ import Heading from '../../atoms/Heading/Heading';
 import Input from '../../atoms/Input/Input';
 import Button from '../../atoms/Button/Button';
 import ButtonLink from '../../atoms/ButtonLink/ButtonLink';
+import Paragraph from '../../atoms/Paragraph/Paragraph';
 
-const AuthCard = ({ authenticate, userAction, userID }) => {
+const AuthCard = ({ authenticate, userAction, userID, error }) => {
   let userActionContent = {};
   if (userAction === 'login') {
     userActionContent = {
@@ -73,6 +74,7 @@ const AuthCard = ({ authenticate, userAction, userID }) => {
             )
         }}
       </Formik>
+      {error && <Paragraph content="Authentication failed" error/>}
       <ButtonLink to={userActionContent.buttonLinkTo} asPlainText upperCase>
         {userActionContent.buttonSecond}
       </ButtonLink>
@@ -83,14 +85,16 @@ const AuthCard = ({ authenticate, userAction, userID }) => {
 AuthCard.propTypes = {
   authenticate: PropTypes.func.isRequired,
   userAction: PropTypes.string.isRequired,
-  userID: PropTypes.string
+  userID: PropTypes.string,
+  error: PropTypes.string
 };
 
 AuthCard.defaultProps = {
-  userID: ''
+  userID: '',
+  error: ''
 };
 
-const mapStateToProps = ({userID=null}) => ({userID});
+const mapStateToProps = ({userID=null, error}) => ({userID, error});
 
 const mapDispatchToProps = dispatch => ({
   authenticate: (username, password) => dispatch(authAction(username, password))

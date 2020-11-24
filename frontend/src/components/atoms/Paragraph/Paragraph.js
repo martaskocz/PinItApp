@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Paragraph.module.scss';
 
-const Paragraph = ({ content, additionalInfo, date, newItem }) => {
+const Paragraph = ({ content, additionalInfo, date, newItem, error }) => {
   const classValue = classNames(styles.paragraph, {
     [styles.paragraphInfo]: additionalInfo,
     [styles.paragraphDate]: date,
     [styles.paragraphNewItem]: newItem,
+    [styles.paragraphError]: error,
   });
 
   return <p className={classValue}>{content}</p>;

@@ -1,4 +1,4 @@
-import {ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS, FETCH_SUCCESS} from '../actions';
+import { ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS, FETCH_SUCCESS, AUTH_FAILURE } from '../actions';
 
 const initialState = {
   twitters: [
@@ -125,13 +125,18 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  const { payload, type } = action;
+  const { payload, err, type } = action;
 
   switch (type) {
     case AUTH_SUCCESS:
       return {
         ...state,
         userID: payload.data._id
+      };
+    case AUTH_FAILURE:
+      return {
+        ...state,
+        error: err
       };
     case FETCH_SUCCESS:
       return {
