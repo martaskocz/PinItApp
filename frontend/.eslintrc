@@ -19,7 +19,8 @@
       {
         "shorthandLast": true
       }
-    ]
+    ],
+    "no-underscore-dangle": 0
   },
   "settings": {
     "import/resolver": {
