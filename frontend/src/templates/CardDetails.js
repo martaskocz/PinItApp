@@ -53,8 +53,9 @@ CardDetails.defaultProps = {
 
 const mapStateToProps = (state, props) => {
   const { pageContext, location } = props;
-  const cardItem = state[pageContext].filter((item) => item.id === location.state.id);
-  return { ...cardItem[0] };
+  const cardItem = state[pageContext].filter((item) => item._id === location.state.id);
+  const [ item ] = cardItem;
+  return { ...item }
 };
 
-export default connect(mapStateToProps)(withContext(CardDetails));
+export default withContext(connect(mapStateToProps)(CardDetails));

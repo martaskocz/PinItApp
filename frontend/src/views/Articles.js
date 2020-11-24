@@ -6,7 +6,7 @@ import Card from 'components/molecules/Card/Card';
 
 const Articles = ({ articles }) => (
   <CardSection>
-    {articles.map(({ articleUrl, content, created, id, title }) => (
+    {articles.map(({ articleUrl, content, created, _id: id, title }) => (
       <Card
         articleUrl={articleUrl}
         content={content}
@@ -29,7 +29,7 @@ export default connect(mapStateToProps)(Articles);
 Articles.propTypes = {
   articles: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      _id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
       articleUrl: PropTypes.string.isRequired

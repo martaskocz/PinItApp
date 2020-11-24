@@ -7,7 +7,7 @@ import withContext from 'hoc/withContext';
 
 const Notes = ({ notes }) => (
   <CardSection>
-    {notes.map(({ content, created, id, title }) => (
+    {notes.map(({ content, created, _id: id, title }) => (
       <Card content={content} created={created} id={id} key={id} title={title} />
     ))}
   </CardSection>
@@ -23,7 +23,7 @@ export default connect(mapStateToProps)(withContext(Notes));
 Notes.propTypes = {
   notes: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      _id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired
     }),

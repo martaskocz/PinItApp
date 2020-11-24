@@ -3,121 +3,121 @@ import {ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS, FETCH_SUCCESS} from '../actions';
 const initialState = {
   twitters: [
     {
-      id: "1",
+      _id: "1",
       title: 'React on my mind',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       twitterName: 'dan_abramov',
       created: '1 day',
     },
     {
-      id: "2",
+      _id: "2",
       title: 'Live React',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       twitterName: 'kentcdodds',
       created: '3 days',
     },
     {
-      id: "3",
+      _id: "3",
       title: 'You do not know JS',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       twitterName: 'ryanflorence',
       created: '12 days',
     },
     {
-      id: "4",
+      _id: "4",
       title: 'Cool vibes',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       twitterName: 'mjackson',
       created: '13 days',
     },
     {
-      id: "5",
+      _id: "5",
       title: 'Winter is coming',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       twitterName: 'cassidoo',
       created: '15 days',
     },
   ],
   notes: [
     {
-      id: "1",
+      _id: "1",
       title: 'React on my mind',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       created: '1 day',
     },
     {
-      id: "2",
+      _id: "2",
       title: 'Live React',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       created: '3 days',
     },
     {
-      id: "3",
+      _id: "3",
       title: 'You do not know JS',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       created: '12 days',
     },
     {
-      id: "4",
+      _id: "4",
       title: 'Cool vibes',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       created: '13 days',
     },
     {
-      id: "5",
+      _id: "5",
       title: 'Winter is coming',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       created: '15 days',
     },
   ],
   articles: [
     {
-      id: "1",
+      _id: "1",
       title: 'React on my mind',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '1 day',
     },
     {
-      id: "2",
+      _id: "2",
       title: 'Live React',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '3 days',
     },
     {
-      id: "3",
+      _id: "3",
       title: 'You do not know JS',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '12 days',
     },
     {
-      id: "4",
+      _id: "4",
       title: 'Cool vibes',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '13 days',
     },
     {
-      id: "5",
+      _id: "5",
       title: 'Winter is coming',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '15 days',
     },
@@ -141,7 +141,7 @@ const reducer = (state = initialState, action) => {
     case REMOVE_ITEM:
       return {
         ...state, // zwracamy caly stan przed wykonaniem akcji
-        [payload.itemType]: state[payload.itemType].filter((item) => item.id !== payload.id),
+        [payload.itemType]: state[payload.itemType].filter((item) => item._id !== payload._id),
       };
     case ADD_ITEM:
       return {
