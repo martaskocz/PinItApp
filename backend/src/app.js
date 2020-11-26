@@ -16,7 +16,12 @@ const PORT = process.env.PORT || 9000;
 const app = express();
 app.use(bodyParser.json());
 app.use(morgan('combined'));
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: [
+    'http://localhost:3000'
+  ]
+}));
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const ADD_ITEM = 'ADD_ITEM';
+export const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST';
+export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
+export const ADD_ITEM_FAILURE = 'ADD_ITEM_FAILURE';
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAILURE = 'AUTH_FAILURE';
@@ -22,20 +24,35 @@ export const removeItem = (itemType, id) => {
   };
 };
 
-export const addItem = (itemType, itemContent) => {
+export const addItem = (itemType, itemContent) => (dispatch, getState) => {
   const getId = () => `${Math.random().toString(36).substr(2, 9)}`;
+  dispatch({
+    type: ADD_ITEM_REQUEST
+  });
 
-  return {
-    type: ADD_ITEM,
-    payload: {
-      itemType,
-      item: {
-        id: getId(),
-        created: '15 days',
-        ...itemContent,
-      },
-    },
-  };
+  return axios.post('http://localhost:9000/api/note', {
+    type: itemType,
+    userID: getState().userID,
+    ...itemContent
+  })
+    .then(payload => {
+      console.log(payload);
+      dispatch({
+        type: ADD_ITEM_SUCCESS,
+        payload: {
+          itemType,
+          item: {
+            _id: getId(),
+            ...itemContent,
+            created: '15 days'
+          },
+        }
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      dispatch({type: ADD_ITEM_FAILURE, error})
+    })
 };
 
 export const authenticate = (username, password) => dispatch => {

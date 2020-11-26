@@ -1,48 +1,14 @@
-import { AUTH_SUCCESS, AUTH_FAILURE, ADD_USER_SUCCESS, FETCH_SUCCESS, ADD_ITEM, REMOVE_ITEM } from '../actions';
+import {
+  AUTH_SUCCESS,
+  AUTH_FAILURE,
+  ADD_USER_SUCCESS,
+  FETCH_SUCCESS,
+  ADD_ITEM_SUCCESS,
+  REMOVE_ITEM,
+} from '../actions';
 
 const initialState = {
-  twitters: [
-    {
-      _id: "1",
-      title: 'React on my mind',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      twitterName: 'dan_abramov',
-      created: '1 day',
-    },
-    {
-      _id: "2",
-      title: 'Live React',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      twitterName: 'kentcdodds',
-      created: '3 days',
-    },
-    {
-      _id: "3",
-      title: 'You do not know JS',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      twitterName: 'ryanflorence',
-      created: '12 days',
-    },
-    {
-      _id: "4",
-      title: 'Cool vibes',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      twitterName: 'mjackson',
-      created: '13 days',
-    },
-    {
-      _id: "5",
-      title: 'Winter is coming',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      twitterName: 'cassidoo',
-      created: '15 days',
-    },
-  ],
+  twitters: [],
   notes: [
     {
       _id: "1",
@@ -153,7 +119,7 @@ const reducer = (state = initialState, action) => {
         ...state, // zwracamy caly stan przed wykonaniem akcji
         [payload.itemType]: state[payload.itemType].filter((item) => item._id !== payload._id),
       };
-    case ADD_ITEM:
+    case ADD_ITEM_SUCCESS:
       return {
         ...state,
         [payload.itemType]: [...state[payload.itemType], payload.item],
