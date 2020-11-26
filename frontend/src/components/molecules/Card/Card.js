@@ -60,7 +60,7 @@ class Card extends React.Component {
         </div>
         <div className={styles.cardBody}>
           <div className={styles.cardBodyPara}>
-            <Paragraph content={content} />
+            <Paragraph content={content} padRight/>
             <Button onClick={this.handleShowDetails.bind(this)} asPlainText upperCase>
               read more
             </Button>

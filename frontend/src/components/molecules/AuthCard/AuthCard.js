@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { Formik, Form } from 'formik';
-import {authenticate as authAction } from '../../../actions';
+import {authenticate as authAction, registerUser as registerAction } from '../../../actions';
 import styles from './AuthCard.module.scss';
 import Heading from '../../atoms/Heading/Heading';
 import Input from '../../atoms/Input/Input';
@@ -11,7 +11,7 @@ import Button from '../../atoms/Button/Button';
 import ButtonLink from '../../atoms/ButtonLink/ButtonLink';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
 
-const AuthCard = ({ authenticate, userAction, userID, error }) => {
+const AuthCard = ({ authenticate, registerUser, userAction, userID, error, registerStatus }) => {
   let userActionContent = {};
   if (userAction === 'login') {
     userActionContent = {
@@ -35,7 +35,7 @@ const AuthCard = ({ authenticate, userAction, userID, error }) => {
       <Formik
         initialValues={{ username: '', password: '' }}
         onSubmit={({ username, password }) => {
-          authenticate(username, password)
+          return userAction === 'login' ? authenticate(username, password) : registerUser(username, password)
         }}
       >
         {({values, handleBlur, handleChange}) => {
@@ -66,6 +66,7 @@ const AuthCard = ({ authenticate, userAction, userID, error }) => {
               <Input
                 id="confirmPassword"
                 placeholder="confirm password"
+                type="password"
               />}
               <Button type="submit" primary upperCase>
                 {userActionContent.button}
@@ -75,6 +76,7 @@ const AuthCard = ({ authenticate, userAction, userID, error }) => {
         }}
       </Formik>
       {error && <Paragraph content="Authentication failed" error/>}
+      {registerStatus && userAction === 'register' && <Paragraph content="Account has been created" />}
       <ButtonLink to={userActionContent.buttonLinkTo} asPlainText upperCase>
         {userActionContent.buttonSecond}
       </ButtonLink>
@@ -84,6 +86,7 @@ const AuthCard = ({ authenticate, userAction, userID, error }) => {
 
 AuthCard.propTypes = {
   authenticate: PropTypes.func.isRequired,
+  registerUser: PropTypes.func.isRequired,
   userAction: PropTypes.string.isRequired,
   userID: PropTypes.string,
   error: PropTypes.string
@@ -94,10 +97,11 @@ AuthCard.defaultProps = {
   error: ''
 };
 
-const mapStateToProps = ({userID=null, error}) => ({userID, error});
+const mapStateToProps = ({userID=null, error, registerStatus}) => ({userID, error, registerStatus});
 
 const mapDispatchToProps = dispatch => ({
-  authenticate: (username, password) => dispatch(authAction(username, password))
+  authenticate: (username, password) => dispatch(authAction(username, password)),
+  registerUser: (username, password) => dispatch(registerAction(username, password))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthCard);

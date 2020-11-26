@@ -1,4 +1,4 @@
-import { ADD_ITEM, REMOVE_ITEM, AUTH_SUCCESS, FETCH_SUCCESS, AUTH_FAILURE } from '../actions';
+import { AUTH_SUCCESS, AUTH_FAILURE, ADD_USER_SUCCESS, FETCH_SUCCESS, ADD_ITEM, REMOVE_ITEM } from '../actions';
 
 const initialState = {
   twitters: [
@@ -6,7 +6,7 @@ const initialState = {
       _id: "1",
       title: 'React on my mind',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       twitterName: 'dan_abramov',
       created: '1 day',
     },
@@ -14,7 +14,7 @@ const initialState = {
       _id: "2",
       title: 'Live React',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       twitterName: 'kentcdodds',
       created: '3 days',
     },
@@ -22,7 +22,7 @@ const initialState = {
       _id: "3",
       title: 'You do not know JS',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       twitterName: 'ryanflorence',
       created: '12 days',
     },
@@ -30,7 +30,7 @@ const initialState = {
       _id: "4",
       title: 'Cool vibes',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       twitterName: 'mjackson',
       created: '13 days',
     },
@@ -38,7 +38,7 @@ const initialState = {
       _id: "5",
       title: 'Winter is coming',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       twitterName: 'cassidoo',
       created: '15 days',
     },
@@ -48,35 +48,35 @@ const initialState = {
       _id: "1",
       title: 'React on my mind',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       created: '1 day',
     },
     {
       _id: "2",
       title: 'Live React',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       created: '3 days',
     },
     {
       _id: "3",
       title: 'You do not know JS',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       created: '12 days',
     },
     {
       _id: "4",
       title: 'Cool vibes',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       created: '13 days',
     },
     {
       _id: "5",
       title: 'Winter is coming',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       created: '15 days',
     },
   ],
@@ -85,7 +85,7 @@ const initialState = {
       _id: "1",
       title: 'React on my mind',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '1 day',
     },
@@ -93,7 +93,7 @@ const initialState = {
       _id: "2",
       title: 'Live React',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '3 days',
     },
@@ -101,7 +101,7 @@ const initialState = {
       _id: "3",
       title: 'You do not know JS',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '12 days',
     },
@@ -109,7 +109,7 @@ const initialState = {
       _id: "4",
       title: 'Cool vibes',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '13 days',
     },
@@ -117,7 +117,7 @@ const initialState = {
       _id: "5",
       title: 'Winter is coming',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor inc_id_idunt ut labore et dolore magna aliqua.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '15 days',
     },
@@ -132,6 +132,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userID: payload.data._id
+      };
+    case ADD_USER_SUCCESS:
+      return {
+        ...state,
+        registerStatus: payload.status
       };
     case AUTH_FAILURE:
       return {

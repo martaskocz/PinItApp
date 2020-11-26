@@ -3,7 +3,6 @@
 .paragraph {
   margin: 0;
   padding-bottom: 2rem;
-  padding-right: 6rem;
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
   font-weight: $light;
@@ -31,4 +30,8 @@
     font-weight: $bold;
     padding-right: 0;
   }
+}
+
+.padRight {
+  padding-right: 6rem;
 }

@@ -20,7 +20,7 @@ const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => 
       {pageContext === 'twitters' && (
         <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
       )}
-      <Paragraph content={content} />
+      <Paragraph content={content} padRight/>
       {pageContext !== 'notes' && (
         <Button asPlainText upperCase>
           open this {pageContext.slice(0, -1)}

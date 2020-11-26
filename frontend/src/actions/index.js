@@ -8,6 +8,9 @@ export const AUTH_FAILURE = 'AUTH_FAILURE';
 export const FETCH_REQUEST = 'FETCH_REQUEST';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
+export const ADD_USER_REQUEST = 'ADD_USER_REQUEST';
+export const ADD_USER_SUCCESS = 'ADD_USER_SUCCESS';
+export const ADD_USER_FAILURE = 'ADD_USER_FAILURE';
 
 export const removeItem = (itemType, id) => {
   return {
@@ -44,11 +47,30 @@ export const authenticate = (username, password) => dispatch => {
     username, password
   })
     .then(payload => {
+      console.log(payload);
       dispatch({type: AUTH_SUCCESS, payload})
     })
     .catch(err => {
       console.log(err);
       dispatch({type: AUTH_FAILURE, err})
+    })
+};
+
+export const registerUser = (username, password) => dispatch => {
+  dispatch({
+    type: ADD_USER_REQUEST
+  });
+
+  axios.post('http://localhost:9000/api/user/register', {
+    username, password
+  })
+    .then(payload => {
+      console.log(payload);
+      dispatch({ type: ADD_USER_SUCCESS, payload })
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({type: ADD_USER_FAILURE, err})
     })
 };
 
