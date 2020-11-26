@@ -43,7 +43,7 @@ const AuthCard = ({ authenticate, registerUser, userAction, userID, error, regis
             return <Redirect to="/notes"/>
           }
           return (
-            <Form>
+            <Form className={styles.form}>
               <Input
                 id="username"
                 name="username"
