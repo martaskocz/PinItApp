@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookie from 'js-cookie';
 
 export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST';
@@ -24,7 +25,7 @@ export const removeItem = (itemType, id) => {
   };
 };
 
-export const addItem = (itemType, itemContent) => (dispatch, getState) => {
+export const addItem = (itemType, itemContent) => (dispatch) => {
   const getId = () => `${Math.random().toString(36).substr(2, 9)}`;
   dispatch({
     type: ADD_ITEM_REQUEST
@@ -32,7 +33,7 @@ export const addItem = (itemType, itemContent) => (dispatch, getState) => {
 
   return axios.post('http://localhost:9000/api/note', {
     type: itemType,
-    userID: getState().userID,
+    userID: Cookie.get('userID'),
     ...itemContent
   })
     .then(payload => {
@@ -91,14 +92,14 @@ export const registerUser = (username, password) => dispatch => {
     })
 };
 
-export const fetchItems = (itemType) => (dispatch, getState) => {
+export const fetchItems = (itemType) => (dispatch) => {
   dispatch({
     type: FETCH_REQUEST
   });
 
   return axios.get('http://localhost:9000/api/notes/type', {
     params: {
-      userID: getState().userID,
+      userID: Cookie.get('userID'),
       type: itemType
     }
   })

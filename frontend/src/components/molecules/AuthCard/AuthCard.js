@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import { Formik, Form } from 'formik';
+import Cookies from 'js-cookie';
 import {authenticate as authAction, registerUser as registerAction } from '../../../actions';
 import styles from './AuthCard.module.scss';
 import Heading from '../../atoms/Heading/Heading';
@@ -40,6 +41,7 @@ const AuthCard = ({ authenticate, registerUser, userAction, userID, error, regis
       >
         {({values, handleBlur, handleChange}) => {
           if(userID){
+            Cookies.set('userID', userID);
             return <Redirect to="/notes"/>
           }
           return (
