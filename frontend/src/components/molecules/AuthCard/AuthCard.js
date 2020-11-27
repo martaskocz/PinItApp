@@ -12,7 +12,7 @@ import Button from '../../atoms/Button/Button';
 import ButtonLink from '../../atoms/ButtonLink/ButtonLink';
 import Paragraph from '../../atoms/Paragraph/Paragraph';
 
-const AuthCard = ({ authenticate, registerUser, userAction, userID, error, registerStatus }) => {
+const AuthCard = ({ authenticate, registerUser, userAction, userID, error, registrationStatus }) => {
   let userActionContent = {};
   if (userAction === 'login') {
     userActionContent = {
@@ -70,16 +70,16 @@ const AuthCard = ({ authenticate, registerUser, userAction, userID, error, regis
                 placeholder="confirm password"
                 type="password"
               />}
-              <Button type="submit" primary upperCase>
+              <Button primary upperCase type="submit" >
                 {userActionContent.button}
               </Button>
             </Form>
             )
         }}
       </Formik>
-      {error && <Paragraph content="Authentication failed" error/>}
-      {registerStatus && userAction === 'register' && <Paragraph content="Account has been created" />}
-      <ButtonLink to={userActionContent.buttonLinkTo} asPlainText upperCase>
+      {error && <Paragraph error content="Authentication failed" />}
+      {registrationStatus === 201 && userAction === 'register' && <Paragraph content="Account has been created" />}
+      <ButtonLink asPlainText upperCase to={userActionContent.buttonLinkTo} >
         {userActionContent.buttonSecond}
       </ButtonLink>
     </div>
@@ -91,15 +91,17 @@ AuthCard.propTypes = {
   registerUser: PropTypes.func.isRequired,
   userAction: PropTypes.string.isRequired,
   userID: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.shape(),
+  registrationStatus: PropTypes.number
 };
 
 AuthCard.defaultProps = {
   userID: '',
-  error: ''
+  error: null,
+  registrationStatus: null
 };
 
-const mapStateToProps = ({userID=null, error, registerStatus}) => ({userID, error, registerStatus});
+const mapStateToProps = ({userID=null, error, registrationStatus}) => ({userID, error, registrationStatus});
 
 const mapDispatchToProps = dispatch => ({
   authenticate: (username, password) => dispatch(authAction(username, password)),

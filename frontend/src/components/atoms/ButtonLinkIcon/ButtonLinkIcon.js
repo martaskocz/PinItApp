@@ -8,7 +8,7 @@ const ButtonLinkIcon = ({ icon, to, exact, logout }) => {
     <div>
       {logout && (
         <Link
-          aria-label="Save"
+          aria-label="Logout"
           className={styles.buttonIcon}
           exact={exact}
           style={{ backgroundImage: `url(${icon})` }}

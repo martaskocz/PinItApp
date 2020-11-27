@@ -100,9 +100,10 @@ const reducer = (state = initialState, action) => {
         userID: payload.data._id
       };
     case ADD_USER_SUCCESS:
+      console.log(payload.status)
       return {
         ...state,
-        registerStatus: payload.status
+        registrationStatus: payload.status
       };
     case AUTH_FAILURE:
       return {

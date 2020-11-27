@@ -17,7 +17,7 @@
     "react/jsx-sort-props": [
       2,
       {
-        "shorthandLast": true
+        "shorthandFirst": true
       }
     ],
     "no-underscore-dangle": 0
