@@ -97,10 +97,10 @@ const reducer = (state = initialState, action) => {
     case AUTH_SUCCESS:
       return {
         ...state,
-        userID: payload.data._id
+        userID: payload.data._id,
+        username: payload.data.username
       };
     case ADD_USER_SUCCESS:
-      console.log(payload.status)
       return {
         ...state,
         registrationStatus: payload.status

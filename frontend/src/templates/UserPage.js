@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Cookie from 'js-cookie';
+import Cookies from 'js-cookie';
+import { withRouter } from 'react-router-dom';
 import Logo from 'components/atoms/Logo/Logo';
 import Heading from 'components/atoms/Heading/Heading';
 import AuthCard from 'components/molecules/AuthCard/AuthCard';
@@ -9,7 +10,7 @@ import styles from './UserPage.module.scss';
 class UserPage extends React.Component {
 
   componentDidMount() {
-    Cookie.remove('userID');
+    Cookies.remove('userID');
   }
 
   render(){
@@ -28,4 +29,4 @@ UserPage.propTypes = {
   userAction: PropTypes.string.isRequired,
 };
 
-export default UserPage;
+export default withRouter(UserPage);

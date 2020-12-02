@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import Cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 import store from 'store';
 import Main from 'templates/Main';
 import { routes } from 'routes/routes';
@@ -20,11 +20,13 @@ const Root = () => (
           <Route exact component={Login} path={routes.login} />
           <Route exact component={Register} path={routes.register} />
           <Route exact path={routes.root} render={() => {
-            if(Cookie.get('userID')){
+            if(Cookies.get('userID')){
               return <Redirect to="/notes" />
             }
             return <Redirect to="/login" />
           }} />
+          <Route exact component={Login} path={routes.login} />
+          <Route exact component={Register} path={routes.register} />
           <Route
             component={Details}
             path={routes.note}
