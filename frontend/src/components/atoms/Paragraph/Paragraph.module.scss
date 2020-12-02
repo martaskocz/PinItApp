@@ -30,6 +30,11 @@
     font-weight: $bold;
     padding-right: 0;
   }
+
+  &Strong {
+    font-weight: $bold;
+    text-align: center;
+  }
 }
 
 .padRight {
