@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Cookies from 'js-cookie';
-import { withRouter } from 'react-router-dom';
 import Logo from 'components/atoms/Logo/Logo';
 import Heading from 'components/atoms/Heading/Heading';
 import AuthCard from 'components/molecules/AuthCard/AuthCard';
@@ -29,4 +28,4 @@ UserPage.propTypes = {
   userAction: PropTypes.string.isRequired,
 };
 
-export default withRouter(UserPage);
+export default UserPage;

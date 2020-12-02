@@ -17,8 +17,6 @@ const Root = () => (
     <BrowserRouter>
       <Main>
         <Switch>
-          <Route exact component={Login} path={routes.login} />
-          <Route exact component={Register} path={routes.register} />
           <Route exact path={routes.root} render={() => {
             if(Cookies.get('userID')){
               return <Redirect to="/notes" />
