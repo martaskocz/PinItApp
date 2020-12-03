@@ -5,7 +5,9 @@ import {
   FETCH_SUCCESS,
   ADD_ITEM_SUCCESS,
   REMOVE_ITEM,
+  LOGOUT_USER
 } from '../actions';
+import Cookies from 'js-cookie';
 
 const initialState = {
   twitters: [],
@@ -124,6 +126,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         [payload.itemType]: [...state[payload.itemType], payload.item],
+      };
+    case LOGOUT_USER:
+      return {
+        ...state,
+        userID: null
       };
     default:
       return state;

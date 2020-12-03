@@ -1,7 +1,8 @@
 import axios from 'axios';
-import Cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 
 export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const LOGOUT_USER = 'LOGOUT_USER';
 export const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST';
 export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS';
 export const ADD_ITEM_FAILURE = 'ADD_ITEM_FAILURE';
@@ -25,6 +26,14 @@ export const removeItem = (itemType, id) => {
   };
 };
 
+export const logoutUser = () => {
+  Cookies.remove('userID');
+  return {
+    type: LOGOUT_USER,
+    payload: {}
+  }
+};
+
 export const addItem = (itemType, itemContent) => (dispatch) => {
   const getId = () => `${Math.random().toString(36).substr(2, 9)}`;
   dispatch({
@@ -33,7 +42,7 @@ export const addItem = (itemType, itemContent) => (dispatch) => {
 
   return axios.post('http://localhost:9000/api/note', {
     type: itemType,
-    userID: Cookie.get('userID'),
+    userID: Cookies.get('userID'),
     ...itemContent
   })
     .then(payload => {
@@ -98,7 +107,7 @@ export const fetchItems = (itemType) => (dispatch) => {
 
   return axios.get('http://localhost:9000/api/notes/type', {
     params: {
-      userID: Cookie.get('userID'),
+      userID: Cookies.get('userID'),
       type: itemType
     }
   })
