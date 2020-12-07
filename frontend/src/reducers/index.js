@@ -7,87 +7,50 @@ import {
   REMOVE_ITEM,
   LOGOUT_USER
 } from '../actions';
-import Cookies from 'js-cookie';
 
 const initialState = {
-  twitters: [],
+  twitters: [
+    {
+      _id: "1",
+      title: 'Demo twitter no.1',
+      content:
+        'Please add your private twitters using new item bar.',
+      twitterName: 'marta',
+      created: '1 day',
+    }
+  ],
   notes: [
     {
       _id: "1",
-      title: 'React on my mind',
+      title: 'Demo Note no.1',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
+        'Please add your private notes using new item bar.',
       created: '1 day',
     },
     {
       _id: "2",
-      title: 'Live React',
+      title: 'Demo Note no.2',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       created: '3 days',
-    },
-    {
-      _id: "3",
-      title: 'You do not know JS',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      created: '12 days',
-    },
-    {
-      _id: "4",
-      title: 'Cool vibes',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      created: '13 days',
-    },
-    {
-      _id: "5",
-      title: 'Winter is coming',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      created: '15 days',
-    },
+    }
   ],
   articles: [
     {
       _id: "1",
-      title: 'React on my mind',
+      title: 'Demo article no.1',
       content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
+        'Please add your private articles using new item bar.',
       articleUrl: 'https://youtube.com',
       created: '1 day',
     },
     {
       _id: "2",
-      title: 'Live React',
+      title: 'Demo article no.2',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
       created: '3 days',
-    },
-    {
-      _id: "3",
-      title: 'You do not know JS',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      articleUrl: 'https://youtube.com',
-      created: '12 days',
-    },
-    {
-      _id: "4",
-      title: 'Cool vibes',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      articleUrl: 'https://youtube.com',
-      created: '13 days',
-    },
-    {
-      _id: "5",
-      title: 'Winter is coming',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      articleUrl: 'https://youtube.com',
-      created: '15 days',
     },
   ],
 };

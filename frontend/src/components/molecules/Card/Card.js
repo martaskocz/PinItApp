@@ -60,12 +60,12 @@ class Card extends React.Component {
         </div>
         <div className={styles.cardBody}>
           <div className={styles.cardBodyPara}>
-            <Paragraph content={content} padRight/>
-            <Button onClick={this.handleShowDetails.bind(this)} asPlainText upperCase>
+            <Paragraph padRight content={content}/>
+            <Button asPlainText upperCase onClick={this.handleShowDetails.bind(this)} >
               read more
             </Button>
           </div>
-          <Button onClick={() => removeItem(pageContext, id)} secondary>
+          <Button secondary onClick={() => removeItem(pageContext, id)} >
             remove
           </Button>
         </div>
