@@ -25,7 +25,7 @@ const NewItemBar = ({ addItem, handleClose, pageContext, showItem }) => {
   return (
     <div className={`${styles.newItemBar} ${styles[pageContext]} ${styles[showItem]}`}>
       <Heading big>{`Add a new ${typeSingular}`}</Heading>
-      <Paragraph content={`A ${typeSingular} requires ${require}`} newItem />
+      <Paragraph newItem content={`A ${typeSingular} requires ${require}`} />
       <Formik
         initialValues={{ title: '', content: '', articleUrl: '', twitterName: '', created: '' }}
         onSubmit={(values) => {
@@ -67,6 +67,7 @@ const NewItemBar = ({ addItem, handleClose, pageContext, showItem }) => {
               />
             )}
             <Input
+              textArea
               id="description"
               name="content"
               onBlur={handleBlur}
@@ -74,10 +75,9 @@ const NewItemBar = ({ addItem, handleClose, pageContext, showItem }) => {
               placeholder="description"
               type="text"
               value={values.content}
-              textArea
             />
-            <Button activeType={pageContext} type="submit" primary upperCase>
-              add note
+            <Button primary upperCase activeType={pageContext} type="submit" >
+              add {typeSingular}
             </Button>
           </Form>
         )}
