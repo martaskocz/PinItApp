@@ -36,6 +36,8 @@ export const logoutUser = () => {
 
 export const addItem = (itemType, itemContent) => (dispatch) => {
   const getId = () => `${Math.random().toString(36).substr(2, 9)}`;
+  const today = new Date();
+  const getDate = () => String(today.toLocaleString("en-GB",{day:"numeric",month: "short", year:"numeric"}));
   dispatch({
     type: ADD_ITEM_REQUEST
   });
@@ -54,7 +56,7 @@ export const addItem = (itemType, itemContent) => (dispatch) => {
           item: {
             _id: getId(),
             ...itemContent,
-            created: '15 days'
+            created: getDate()
           },
         }
       });

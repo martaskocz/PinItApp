@@ -16,7 +16,7 @@ const initialState = {
       content:
         'Please add your private twitters using new item bar.',
       twitterName: 'marta',
-      created: '1 day',
+      created: '1 Jan 2000',
     }
   ],
   notes: [
@@ -25,14 +25,14 @@ const initialState = {
       title: 'Demo Note no.1',
       content:
         'Please add your private notes using new item bar.',
-      created: '1 day',
+      created: '1 Jan 2000',
     },
     {
       _id: "2",
       title: 'Demo Note no.2',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      created: '3 days',
+      created: '1 Jan 2000',
     }
   ],
   articles: [
@@ -42,7 +42,7 @@ const initialState = {
       content:
         'Please add your private articles using new item bar.',
       articleUrl: 'https://youtube.com',
-      created: '1 day',
+      created: '1 Jan 2000',
     },
     {
       _id: "2",
@@ -50,7 +50,7 @@ const initialState = {
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
       articleUrl: 'https://youtube.com',
-      created: '3 days',
+      created: '1 Jan 2000',
     },
   ],
 };

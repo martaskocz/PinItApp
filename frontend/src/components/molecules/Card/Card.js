@@ -88,7 +88,7 @@ Card.propTypes = {
 Card.defaultProps = {
   twitterName: null,
   articleUrl: null,
-  created: '15 Nov'
+  created: '1 Jan 2000'
 };
 
 const mapDispatchToProps = (dispatch) => ({
