@@ -27,7 +27,7 @@ const NewItemBar = ({ addItem, handleClose, pageContext, showItem }) => {
       <Heading big>{`Add a new ${typeSingular}`}</Heading>
       <Paragraph newItem content={`A ${typeSingular} requires ${require}`} />
       <Formik
-        initialValues={{ title: '', content: '', articleUrl: '', twitterName: '', created: '' }}
+        initialValues={{ title: '', content: '', articleUrl: '', twitterName: '' }}
         onSubmit={(values) => {
           addItem(pageContext, values);
           handleClose();

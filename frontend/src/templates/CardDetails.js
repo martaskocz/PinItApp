@@ -8,7 +8,7 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import Button from 'components/atoms/Button/Button';
 import styles from './CardDetails.module.scss';
 
-const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => {
+const CardDetails = ({ content, created, title, twitterName, pageContext }) => {
   const history = useHistory();
   const handleGoBack = () =>
     history.replace(history.location.pathname.split('/').slice(0, -1).join('/'));
@@ -16,7 +16,7 @@ const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => 
   return (
     <div className={styles.wrapper}>
       <Heading big>{title}</Heading>
-      <Paragraph content={dateInfo} date />
+      <Paragraph content={created} date />
       {pageContext === 'twitters' && (
         <img alt="twitter avatar" src={`https://twitter-avatar.now.sh/${twitterName}`} />
       )}
@@ -38,7 +38,7 @@ const CardDetails = ({ content, dateInfo, title, twitterName, pageContext }) => 
 
 CardDetails.propTypes = {
   content: PropTypes.string,
-  dateInfo: PropTypes.string,
+  created: PropTypes.string,
   title: PropTypes.string,
   twitterName: PropTypes.string,
   pageContext: PropTypes.oneOf(['notes', 'twitters', 'articles']).isRequired,
@@ -46,7 +46,7 @@ CardDetails.propTypes = {
 
 CardDetails.defaultProps = {
   content: 'Content',
-  dateInfo: 'DD-MM-YYYY',
+  created: 'DD-MM-YYYY',
   title: 'Title',
   twitterName: null,
 };

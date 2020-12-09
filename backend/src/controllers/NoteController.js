@@ -12,6 +12,7 @@ const note = {
         articleUrl: req.body.articleUrl,
         twitterName: req.body.twitterName,
         userID: req.body.userID,
+        created: req.body.created
       };
 
       try {

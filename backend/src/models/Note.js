@@ -29,6 +29,9 @@ const NoteSchema = new Schema({
     type: String,
     required: true,
   },
+  created: {
+    type: String
+  },
 });
 
 mongoose.model('notes', NoteSchema);

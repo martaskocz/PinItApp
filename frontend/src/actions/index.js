@@ -45,6 +45,7 @@ export const addItem = (itemType, itemContent) => (dispatch) => {
   return axios.post('http://localhost:9000/api/note', {
     type: itemType,
     userID: Cookies.get('userID'),
+    created: getDate(),
     ...itemContent
   })
     .then(payload => {
@@ -55,8 +56,8 @@ export const addItem = (itemType, itemContent) => (dispatch) => {
           itemType,
           item: {
             _id: getId(),
+            created: getDate(),
             ...itemContent,
-            created: getDate()
           },
         }
       });
