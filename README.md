@@ -8,12 +8,17 @@
 </tr>
 </table>
 
+## Table of contents
+- [Demo](#demo)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Features](#features)
 
 ## Demo
 Here is a working live demo :  https://AAAAA.github.io/FavNoteApp/
 
 
-## Application tech stack
+## Technologies
 
 - React (v16)
 - Redux (v4)
@@ -31,4 +36,14 @@ Frontend: Once the dependencies are installed, you can run  `npm start` to start
  able to access it at localhost:3000
 
 Backend: Please do the same (`npm start`). App will be listening on port 9000.
+
+## Features
+List of features ready and TODOs for future development
+- Awesome feature 1
+- Awesome feature 2
+- Awesome feature 3
+
+To-do list:
+- Wow improvement to be done 1
+- Wow improvement to be done 2
 
