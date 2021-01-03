@@ -35,9 +35,12 @@ class CardSection extends React.Component {
       <div className={styles.wrapper}>
         <SideBar pageContext={pageContext} />
         <div className={styles.cardSectionNav}>
-          <Input id="search" placeholder="search" withSearchIcon />
+          <Input withSearchIcon id="search" placeholder="search" />
           <Heading big>{pageContext}</Heading>
-          <Paragraph content={numberOfItemsLabel} additionalInfo />
+          <Paragraph additionalInfo content={numberOfItemsLabel} />
+          {numberOfItems === 0 && (
+            <Paragraph content={`Please add your private ${pageContext} using ADD NEW ITEM bar.`}/>
+          )}
         </div>
         <div className={styles.cardSection}>{children}</div>
         {!showNewItemBar && (

@@ -10,48 +10,33 @@ import {
 
 const initialState = {
   twitters: [
-    {
-      _id: "1",
-      title: 'Demo twitter no.1',
-      content:
-        'Please add your private twitters using new item bar.',
-      twitterName: 'marta',
-      created: '1 Jan 2000',
-    }
+    // {
+    //   _id: "1",
+    //   title: 'Demo twitter no.1',
+    //   content:
+    //     'Please add your private twitters using new item bar.',
+    //   twitterName: 'marta',
+    //   created: '1 Jan 2000',
+    // }
   ],
   notes: [
-    {
-      _id: "1",
-      title: 'Demo Note no.1',
-      content:
-        'Please add your private notes using new item bar.',
-      created: '1 Jan 2000',
-    },
-    {
-      _id: "2",
-      title: 'Demo Note no.2',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      created: '1 Jan 2000',
-    }
+    // {
+    //   _id: "1",
+    //   title: 'Demo Note no.1',
+    //   content:
+    //     'Please add your private notes using new item bar.',
+    //   created: '1 Jan 2000',
+    // }
   ],
   articles: [
-    {
-      _id: "1",
-      title: 'Demo article no.1',
-      content:
-        'Please add your private articles using new item bar.',
-      articleUrl: 'https://youtube.com',
-      created: '1 Jan 2000',
-    },
-    {
-      _id: "2",
-      title: 'Demo article no.2',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incunt ut labore et dolore magna aliqua.',
-      articleUrl: 'https://youtube.com',
-      created: '1 Jan 2000',
-    },
+    // {
+    //   _id: "1",
+    //   title: 'Demo article no.1',
+    //   content:
+    //     'Please add your private articles using new item bar.',
+    //   articleUrl: 'https://youtube.com',
+    //   created: '1 Jan 2000',
+    // }
   ],
 };
 

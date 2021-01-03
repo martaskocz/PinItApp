@@ -16,7 +16,7 @@ class Twitters extends React.Component {
     const {twitters} = this.props;
     return (
       <CardSection>
-        {twitters.map(({ content, created, _id: id, title, twitterName }) => (
+        {twitters.reverse().map(({ content, created, _id: id, title, twitterName }) => (
           <Card
             content={content}
             created={created}
