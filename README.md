@@ -1,9 +1,8 @@
-# FavNote
+# Pin It App 📌
 <table>
 <tr>
 <td>
-   This is a React & NodeJS application powered by Express that provides the functions such as user registration and
-    logging, adding and displaying user's items from 3 sections: Twitters, Notes and Articles.
+    Pin It is a React & NodeJS application for adding, saving and displaying user's notes from 3 sections: Twitters, Notes and Articles.
 </td>
 </tr>
 </table>
@@ -15,7 +14,7 @@
 - [Features](#features)
 
 ## Demo
-Here is a working live demo :  https://AAAAA.github.io/FavNoteApp/
+Here is a working live demo :  https://AAAAA.github.io/PinItApp/
 
 
 ## Technologies
@@ -37,13 +36,13 @@ Frontend: Once the dependencies are installed, you can run  `npm start` to start
 
 Backend: Please do the same (`npm start`). App will be listening on port 9000.
 
+Default credentials: user: abc & pass: abc
+
 ## Features
 List of features ready and TODOs for future development
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Logging and registration 
+- Adding and displaying user's notes from 3 sections: Twitters, Notes and Articles (+ save them in DB)
 
 To-do list:
-- Wow improvement to be done 1
-- Wow improvement to be done 2
+- Search feature
 
