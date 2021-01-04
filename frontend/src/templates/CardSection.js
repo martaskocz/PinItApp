@@ -39,7 +39,7 @@ class CardSection extends React.Component {
           <Heading big>{pageContext}</Heading>
           <Paragraph additionalInfo content={numberOfItemsLabel} />
           {numberOfItems === 0 && (
-            <Paragraph content={`Please add your private ${pageContext} using ADD NEW ITEM bar.`}/>
+            <Paragraph content={`Please add your ${pageContext} using ADD NEW ITEM bar.`}/>
           )}
         </div>
         <div className={styles.cardSection}>{children}</div>

@@ -17,7 +17,7 @@ const AuthCard = ({ authenticate, registerUser, userAction, userID, error, regis
   if (userAction === 'login') {
     userActionContent = {
       title: 'Sign in',
-      button: 'Enter into FavNote',
+      button: 'Enter into Pin It',
       buttonLinkTo: '/register',
       buttonSecond: 'I want to register',
     };
